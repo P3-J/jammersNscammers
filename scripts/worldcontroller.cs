@@ -32,7 +32,7 @@ public partial class worldcontroller : Node2D
         // ratio = 0.8889   x * 0.8889
 
         Random rand = new Random();
-
+        int lastx = 0;
         for (int i = 1; i < 40; i++)
         {
 
@@ -43,8 +43,11 @@ public partial class worldcontroller : Node2D
             Node2D obj = spawnObject(nameofobj);
             GetTree().CurrentScene.AddChild(obj);
             
-            int distancebetween = rand.Next(600,1200) * i;
-            obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio));
+            int distancebetween = lastx + rand.Next(200,1000);
+            int randomizedYdiff  = rand.Next(-90, 100);
+
+            lastx = distancebetween;
+            obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
 
         }
     }
@@ -63,9 +66,5 @@ public partial class worldcontroller : Node2D
         return null;
     }
 
-
-    private void _on_area_2d_body_entered(Node2D body){
-        GD.Print(body);
-    }
 
 }

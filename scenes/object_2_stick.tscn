@@ -6,13 +6,30 @@
 rotation = -0.785398
 scale = Vector2(2, 2)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-98.9949, 8.72421)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(84.8528, -67.8823)
+rotation = -3.14159
+polygon = PackedVector2Array(-16.9709, -84.8527, 110.308, -82.0249, -14.1421, 14.1422)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2.82844, 25.6948)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-11.3137, -11.3137, -11.3137, -56.5685, 79.196, 11.3137, -11.3137, 11.3137)
+position = Vector2(11.3137, -39.598)
+polygon = PackedVector2Array(-14.1421, -59.397, 121.622, 42.4264, -11.3137, 39.598)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(31.5929, -24.3189)
-scale = Vector2(1.45695, 1.12392)
+position = Vector2(65.0538, -19.5601)
+scale = Vector2(2, 1.543)
 texture = ExtResource("1_hxn8e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-62.2254, -22.3885)
+scale = Vector2(2, 1.543)
+texture = ExtResource("1_hxn8e")
+flip_h = true

@@ -83,6 +83,7 @@ spot_attenuation = 10.0
 spot_angle = 39.86
 
 [node name="TextureRect" type="TextureRect" parent="cannonparent"]
+z_index = -1
 offset_left = -904.0
 offset_top = -216.0
 offset_right = -392.0
