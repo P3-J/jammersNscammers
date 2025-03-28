@@ -1,10 +1,10 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class worldcontroller : Node2D
 {
-
     Globals glob;
+
     public override void _Ready()
     {
         base._Ready();
@@ -12,15 +12,12 @@ public partial class worldcontroller : Node2D
 
         glob.Connect("microsoft", new Callable(this, nameof(TestPrint)));
         glob.EmitSignal("microsoft");
-       
     }
 
     private void TestPrint()
     {
         GD.Print("log");
-        GetTree().ChangeSceneToFile("test");
-        GetTree().Paused = true;
+
+        //GetTree().Paused = true;
     }
-
-
 }
