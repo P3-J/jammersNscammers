@@ -3,21 +3,68 @@ using Godot;
 
 public partial class worldcontroller : Node2D
 {
-	Globals glob;
+    Globals glob;
+    [Export] CollisionPolygon2D hillcollision;
+    [Export] PackedScene objectRamp;
+    [Export] PackedScene objectWall;
 
-	public override void _Ready()
-	{
-		base._Ready();
-		glob = GetNode<Globals>("/root/Globals");
+    private enum groundObjects {Ramp, Wall}
 
-		glob.Connect("microsoft", new Callable(this, nameof(TestPrint)));
-		glob.EmitSignal("microsoft");
-	}
+    public override void _Ready()
+    {
+        base._Ready();
+        glob = GetNode<Globals>("/root/Globals");
 
-	private void TestPrint()
-	{
-		GD.Print("log");
+        glob.Connect("microsoft", new Callable(this, nameof(TestPrint)));
+        glob.EmitSignal("microsoft");
+        spawnHillObjects();
+    }
 
-		//GetTree().Paused = true;
-	}
+    private void TestPrint()
+    {
+
+        //GetTree().Paused = true;
+    }
+
+    private void spawnHillObjects()
+    {
+        float ratio = 0.9f;
+        // ratio = 0.8889   x * 0.8889
+
+        Random rand = new Random();
+        int lastx = 0;
+        for (int i = 1; i < 40; i++)
+        {
+
+            int selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
+            string[] names = Enum.GetNames(typeof(groundObjects));
+
+            string nameofobj = names[selection];
+            Node2D obj = spawnObject(nameofobj);
+            GetTree().CurrentScene.AddChild(obj);
+            
+            int distancebetween = lastx + rand.Next(200,1000);
+            int randomizedYdiff  = rand.Next(-90, 100);
+
+            lastx = distancebetween;
+            obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
+
+        }
+    }
+
+    private Node2D spawnObject(string Name){
+        Random rand = new Random();
+        switch (Name){
+            case "Ramp":
+                Node2D ramp = objectRamp.Instantiate<Node2D>();
+                return ramp;
+            case "Wall":
+                Node2D wall = objectWall.Instantiate<Node2D>();
+                return wall;
+        }
+
+        return null;
+    }
+
+
 }

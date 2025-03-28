@@ -28,6 +28,10 @@ window/size/viewport_height=900
 
 project/assembly_name="inshallahjam"
 
+[global_group]
+
+hill=""
+
 [input]
 
 lmb={

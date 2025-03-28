@@ -10,8 +10,12 @@ public partial class Snowball : RigidBody2D
     [Export] Timer growtimer;
     [Export] CollisionShape2D snowballcol;
     [Export] Sprite2D snowballsprite;
+    [Export] Timer stucktimer;
 
     public float colradiuss;
+    bool boostedDown = false;
+    Vector2 lastpos;
+    Godot.Collections.Array<Node2D> colbodies;
 
 
     public void SetSnowballCameraAsCurrent(){
@@ -28,25 +32,45 @@ public partial class Snowball : RigidBody2D
     {
         base._Process(delta);
         GodotObject collider = groundcheck.GetCollider();
+        colbodies = GetCollidingBodies(); 
 
-        if (collider is StaticBody2D && growtimer.IsStopped()){
-            growtimer.Start();
+        if (stucktimer.IsStopped()){
+            GD.Print("started");
+            stucktimer.Start();
+            lastpos = GlobalPosition;
         }
 
+        if (colbodies.Count >= 1){
+            boostedDown = false;
+        }
+        
+        if (collider is StaticBody2D &&growtimer.IsStopped()){
+            StaticBody2D col = (StaticBody2D)collider;
+            if (col.IsInGroup("hill")){
+                GrowBall();
+                growtimer.Start();
+            }
+        }
+
+    }
+
+    private void _on_stucktimer_timeout(){
+        GD.Print(lastpos, GlobalPosition);
+        if (lastpos == GlobalPosition){
+            GetTree().ChangeSceneToFile("res://scenes/world.tscn");
+        }
     }
 
     public override void _Input(InputEvent @event)
     {
-        Godot.Collections.Array<Node2D> colbodies = GetCollidingBodies(); 
-        GD.Print(colbodies.Count );
-
-        if (Input.IsActionJustPressed("jump") && colbodies.Count != 0){
-             LinearVelocity = new Vector2(LinearVelocity.X - 10f, LinearVelocity.Y - 700);
+        
+        if (Input.IsActionJustPressed("jump") && colbodies.Count == 0 && !boostedDown){
+             LinearVelocity = new Vector2(LinearVelocity.X + 400, LinearVelocity.Y + 700);
+             boostedDown = true;
         }
     }
 
-
-    private void _on_grow_snoball_timeout(){
+    void GrowBall(){
         float growthFactor = 1.05f;
         snowballsprite.Scale = new Vector2(snowballsprite.Scale.X * growthFactor, snowballsprite.Scale.Y * growthFactor);
 
@@ -66,11 +90,10 @@ public partial class Snowball : RigidBody2D
 		tween2.TweenProperty(sballCamera, "zoom", sballCamera.Zoom *= 0.98f, 1)
 			.SetTrans(Tween.TransitionType.Linear);
 
+        Mass += 0.5f;
+
         groundcheck.Scale *= growthFactor;
         LinearVelocity = new Vector2(LinearVelocity.X - 100f, LinearVelocity.Y + 100);
     }
         
-        
-    
-
 }
