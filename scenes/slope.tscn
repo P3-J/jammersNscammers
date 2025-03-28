@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b05l65av4ge13"]
+
+[ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="1_jcoxn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1198, 594)
+color = Color(0, 0.524818, 0.762196, 1)
+polygon = PackedVector2Array(-1198, 11, 3, -398, 3, 11)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -1
+repeat_size = Vector2(400, 0)
+autoscroll = Vector2(300, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(293, 309)
+texture = ExtResource("1_jcoxn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(842, 132)
+texture = ExtResource("1_jcoxn")
