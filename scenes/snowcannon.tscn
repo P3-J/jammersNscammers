@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://mo182i8b3eb2"]
+[gd_scene load_steps=16 format=3 uid="uid://mo182i8b3eb2"]
 
 [ext_resource type="Script" uid="uid://bxjkfnrqpy8lt" path="res://scripts/Snowcannon.cs" id="1_p45f0"]
 [ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
 [ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="2_ahx1a"]
+[ext_resource type="Texture2D" uid="uid://q1i58ef0q2cv" path="res://assets/obj/cannon_tex.png" id="4_3vq1d"]
 [ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_ag0j6"]
+[ext_resource type="ArrayMesh" uid="uid://b3g8v4fjdrcc1" path="res://assets/obj/cannon.obj" id="4_cjiui"]
 [ext_resource type="ArrayMesh" uid="uid://dpslepg2opo0s" path="res://assets/obj/kahur_alus.obj" id="5_ti4ob"]
 [ext_resource type="Texture2D" uid="uid://dugy0mx2vfaqo" path="res://assets/obj/kahur_alus_tex.png" id="6_3vq1d"]
 
@@ -19,6 +21,9 @@ sky = SubResource("Sky_3vq1d")
 
 [sub_resource type="World3D" id="World3D_i03wu"]
 environment = SubResource("Environment_cjiui")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i03wu"]
+albedo_texture = ExtResource("4_3vq1d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjiui"]
 albedo_texture = ExtResource("6_3vq1d")
@@ -66,11 +71,17 @@ transparent_bg = true
 
 [node name="Node3D" type="Node3D" parent="cannonparent/SubViewport"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="cannonparent/SubViewport/Node3D"]
+[node name="Cannon3D" type="MeshInstance3D" parent="cannonparent/SubViewport/Node3D"]
+transform = Transform3D(-0.0896563, -0.120385, -0.988671, 0.500084, -0.863907, 0.0598436, -0.861323, -0.489053, 0.137657, -0.0285904, 3.32191, 0.125988)
+mesh = ExtResource("4_cjiui")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_i03wu")
+
+[node name="Stand3D" type="MeshInstance3D" parent="cannonparent/SubViewport/Node3D"]
 mesh = ExtResource("5_ti4ob")
 surface_material_override/0 = SubResource("StandardMaterial3D_cjiui")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cannonparent/SubViewport/Node3D/MeshInstance3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cannonparent/SubViewport/Node3D/Stand3D"]
 
 [node name="Camera3D" type="Camera3D" parent="cannonparent/SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74826)
@@ -83,6 +94,9 @@ spot_attenuation = 10.0
 spot_angle = 39.86
 
 [node name="TextureRect" type="TextureRect" parent="cannonparent"]
+show_behind_parent = true
+visibility_layer = 2
+z_index = -4
 offset_left = -904.0
 offset_top = -216.0
 offset_right = -392.0
