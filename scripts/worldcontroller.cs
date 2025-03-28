@@ -17,6 +17,7 @@ public partial class worldcontroller : Node2D
     private void TestPrint()
     {
         GD.Print("log");
-        // GetTree().Paused = true;
+
+        //GetTree().Paused = true;
     }
 }

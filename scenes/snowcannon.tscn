@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://mo182i8b3eb2"]
+
+[ext_resource type="Script" uid="uid://bxjkfnrqpy8lt" path="res://scripts/Snowcannon.cs" id="1_p45f0"]
+[ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
+[ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="2_ahx1a"]
+[ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_ag0j6"]
+
+[node name="snowcannon" type="Node2D" node_paths=PackedStringArray("target", "launchspot", "launcherparent", "launchbar")]
+script = ExtResource("1_p45f0")
+target = NodePath("launcherparent/target")
+launchspot = NodePath("launcherparent/launchspot")
+launcherparent = NodePath("launcherparent")
+snowball = ExtResource("2_ag0j6")
+launchbar = NodePath("launchbar")
+
+[node name="launcherparent" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="launcherparent"]
+position = Vector2(16, 0)
+scale = Vector2(1, 0.1875)
+texture = ExtResource("2_ahx1a")
+
+[node name="target" type="Marker2D" parent="launcherparent"]
+position = Vector2(160, 0)
+gizmo_extents = 43.8
+
+[node name="launchspot" type="Marker2D" parent="launcherparent"]
+
+[node name="launchbar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -80.0
+offset_top = 32.0
+offset_right = 112.0
+offset_bottom = 42.0
+value = 79.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_ag0j6")
+texture_progress = ExtResource("2_ahx1a")
