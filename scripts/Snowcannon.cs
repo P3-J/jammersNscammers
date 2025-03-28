@@ -101,7 +101,7 @@ public partial class Snowcannon : Node2D
         if (launchbar.Value < 79){
             return 2000;
         }
-        return 3000;
+        return 6000;
     }
 
 }

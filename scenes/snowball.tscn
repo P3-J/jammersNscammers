@@ -6,17 +6,30 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsgkx"]
 radius = 40.0
 
-[node name="snowball" type="RigidBody2D" node_paths=PackedStringArray("sballCamera")]
-mass = 0.1
+[node name="snowball" type="RigidBody2D" node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite")]
+mass = 0.05
 script = ExtResource("1_xsgkx")
 sballCamera = NodePath("sballcamera")
+groundcheck = NodePath("groundcheckray")
+growtimer = NodePath("growSnoball")
+snowballcol = NodePath("snowballcol")
+snowballsprite = NodePath("snowballsprite")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="snowballcol" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xsgkx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="snowballsprite" type="Sprite2D" parent="."]
 position = Vector2(0, -3.8147e-06)
 scale = Vector2(0.163386, 0.160387)
 texture = ExtResource("1_6tw0o")
 
 [node name="sballcamera" type="Camera2D" parent="."]
+
+[node name="groundcheckray" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+
+[node name="growSnoball" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="growSnoball" to="." method="_on_grow_snoball_timeout"]
