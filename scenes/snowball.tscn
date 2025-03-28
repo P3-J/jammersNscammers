@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyh0qb6omf2gv"]
+
+[ext_resource type="Texture2D" uid="uid://c6ru525yy27po" path="res://assets/snowball.png" id="1_6tw0o"]
+[ext_resource type="Script" uid="uid://1lei5xfmxfmk" path="res://scripts/Snowball.cs" id="1_xsgkx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsgkx"]
+radius = 40.0
+
+[node name="snowball" type="RigidBody2D" node_paths=PackedStringArray("sballCamera")]
+mass = 0.1
+script = ExtResource("1_xsgkx")
+sballCamera = NodePath("sballcamera")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xsgkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(0.163386, 0.160387)
+texture = ExtResource("1_6tw0o")
+
+[node name="sballcamera" type="Camera2D" parent="."]

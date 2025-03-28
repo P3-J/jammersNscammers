@@ -18,8 +18,7 @@ public partial class worldcontroller : Node2D
     private void TestPrint()
     {
         GD.Print("log");
-        GetTree().ChangeSceneToFile("test");
-        GetTree().Paused = true;
+        //GetTree().Paused = true;
     }
 
 
