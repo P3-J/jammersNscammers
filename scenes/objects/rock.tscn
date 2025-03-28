@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://blul4wsyepp6e"]
+
+[ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="1_2dker"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dker"]
+size = Vector2(125, 124)
+
+[node name="Rock" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(97, 69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_2dker")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(0.774096, 0.0601429, 0.449671, 1)
+texture = ExtResource("1_2dker")
