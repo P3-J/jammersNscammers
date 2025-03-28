@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mo182i8b3eb2"]
+[gd_scene load_steps=13 format=3 uid="uid://mo182i8b3eb2"]
 
 [ext_resource type="Script" uid="uid://bxjkfnrqpy8lt" path="res://scripts/Snowcannon.cs" id="1_p45f0"]
 [ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
@@ -7,11 +7,24 @@
 [ext_resource type="ArrayMesh" uid="uid://dpslepg2opo0s" path="res://assets/obj/kahur_alus.obj" id="5_ti4ob"]
 [ext_resource type="Texture2D" uid="uid://dugy0mx2vfaqo" path="res://assets/obj/kahur_alus_tex.png" id="6_3vq1d"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ti4ob"]
+
+[sub_resource type="Sky" id="Sky_3vq1d"]
+sky_material = SubResource("ProceduralSkyMaterial_ti4ob")
+
+[sub_resource type="Environment" id="Environment_cjiui"]
+background_mode = 2
+background_color = Color(0, 0, 0.631373, 1)
+sky = SubResource("Sky_3vq1d")
+
+[sub_resource type="World3D" id="World3D_i03wu"]
+environment = SubResource("Environment_cjiui")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjiui"]
 albedo_texture = ExtResource("6_3vq1d")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ti4ob"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("cannonparent/SubViewport")
 
 [node name="snowcannon" type="Node2D" node_paths=PackedStringArray("target", "launchspot", "launcherparent", "launchbar")]
 script = ExtResource("1_p45f0")
@@ -20,33 +33,6 @@ launchspot = NodePath("launcherparent/launchspot")
 launcherparent = NodePath("launcherparent")
 snowball = ExtResource("2_ag0j6")
 launchbar = NodePath("launchbar")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-
-[node name="Node3D" type="Node3D" parent="SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15159, 0.62288, -0.362386)
-mesh = ExtResource("5_ti4ob")
-surface_material_override/0 = SubResource("StandardMaterial3D_cjiui")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Node3D/MeshInstance3D"]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844271, 0.207375, 3.29984)
-current = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.965668, 0.25978, 0, -0.25978, 0.965668, 0, 1.34059, 6.89763)
-spot_range = 4096.0
-spot_attenuation = 10.0
-spot_angle = 39.86
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 512.0
-offset_bottom = 512.0
-texture = SubResource("ViewportTexture_ti4ob")
 
 [node name="launcherparent" type="Node2D" parent="."]
 
@@ -71,3 +57,34 @@ value = 79.0
 nine_patch_stretch = true
 texture_under = ExtResource("4_ag0j6")
 texture_progress = ExtResource("2_ahx1a")
+
+[node name="cannonparent" type="Node" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="cannonparent"]
+world_3d = SubResource("World3D_i03wu")
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="cannonparent/SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cannonparent/SubViewport/Node3D"]
+mesh = ExtResource("5_ti4ob")
+surface_material_override/0 = SubResource("StandardMaterial3D_cjiui")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cannonparent/SubViewport/Node3D/MeshInstance3D"]
+
+[node name="Camera3D" type="Camera3D" parent="cannonparent/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74826)
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="cannonparent/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965668, 0.25978, 0, -0.25978, 0.965668, 0, 1.34059, 6.89763)
+spot_range = 4096.0
+spot_attenuation = 10.0
+spot_angle = 39.86
+
+[node name="TextureRect" type="TextureRect" parent="cannonparent"]
+offset_left = -904.0
+offset_top = -216.0
+offset_right = -392.0
+offset_bottom = 296.0
+texture = SubResource("ViewportTexture_ti4ob")
