@@ -8,5 +8,19 @@ process_mode = 1
 script = ExtResource("1_nnsk1")
 
 [node name="snowcannon" parent="." instance=ExtResource("2_rwgxs")]
+position = Vector2(58, -3)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="snowcannon"]
+position = Vector2(355, -168)
+
+[node name="hill" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hill"]
+position = Vector2(2253, 0)
+polygon = PackedVector2Array(747, 0, 24635, -21560, 24435, 0)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
+position = Vector2(-5696, 8136)
+polygon = PackedVector2Array(-10120, -8240, 8696, -8136, -616, 1720)
