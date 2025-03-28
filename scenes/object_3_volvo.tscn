@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1klfg8rqfan0"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctek41xfny8m" path="res://assets/obj/volvo.obj" id="1_x6lks"]
+[ext_resource type="Texture2D" uid="uid://5nuoj76m0xf0" path="res://assets/obj/volvo_tex.png" id="2_wxx8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxs0g"]
+albedo_texture = ExtResource("2_wxx8e")
+
+[node name="object_3_volvo" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
+transform = Transform3D(0.362313, 0, 0, 0, 0.362313, 0, 0, 0, 0.362313, 0, 0, 0)
+mesh = ExtResource("1_x6lks")
+surface_material_override/0 = SubResource("StandardMaterial3D_wxs0g")
