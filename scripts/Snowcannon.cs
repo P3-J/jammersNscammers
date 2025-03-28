@@ -83,13 +83,12 @@ public partial class Snowcannon : Node2D
 
     private void launchSnowBall()
     {
-        Snowball sball = snowball.Instantiate<Snowball>();
-        GetTree().CurrentScene.AddChild(sball);
-        sball.GlobalPosition = launchspot.GlobalPosition;
+        snowballmanager sballscene = snowball.Instantiate<snowballmanager>();
+        GetTree().CurrentScene.AddChild(sballscene);
+        sballscene.GlobalPosition = launchspot.GlobalPosition;
 
         Vector2 direction = (target.GlobalPosition - launchspot.GlobalPosition).Normalized();
-        sball.LinearVelocity = direction * GetPowerBasedOnLaunchBar();
-        sball.SetSnowballCameraAsCurrent();
+        sballscene.ApplyForce(direction * GetPowerBasedOnLaunchBar());
 
     }
 

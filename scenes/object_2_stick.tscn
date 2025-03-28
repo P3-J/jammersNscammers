@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://5dpky35krkgy"]
+
+[ext_resource type="Texture2D" uid="uid://c7m117j8k6vr1" path="res://assets/rocktexture.png" id="1_hxn8e"]
+
+[node name="object2stick" type="Node2D"]
+rotation = -0.785398
+scale = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-11.3137, -11.3137, -11.3137, -56.5685, 79.196, 11.3137, -11.3137, 11.3137)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(31.5929, -24.3189)
+scale = Vector2(1.45695, 1.12392)
+texture = ExtResource("1_hxn8e")

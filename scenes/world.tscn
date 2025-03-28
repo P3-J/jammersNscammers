@@ -1,25 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=6 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://mo182i8b3eb2" path="res://scenes/snowcannon.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://5dpky35krkgy" path="res://scenes/object_2_stick.tscn" id="3_k0juu"]
+[ext_resource type="Script" uid="uid://c6s0rp4uovkfl" path="res://scripts/polyfill.cs" id="6_i7141"]
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision")]
 process_mode = 1
 script = ExtResource("1_nnsk1")
+hillcollision = NodePath("hill/CollisionPolygon2D")
+objectRamp = ExtResource("2_4wyf3")
+objectWall = ExtResource("3_k0juu")
 
 [node name="snowcannon" parent="." instance=ExtResource("2_rwgxs")]
-position = Vector2(58, -3)
+position = Vector2(-672, -16)
 
 [node name="Camera2D" type="Camera2D" parent="snowcannon"]
 position = Vector2(355, -168)
 
 [node name="hill" type="StaticBody2D" parent="."]
+position = Vector2(-3000, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hill"]
 position = Vector2(2253, 0)
 polygon = PackedVector2Array(747, 0, 24635, -21560, 24435, 0)
 
+[node name="Polygon2D" type="Polygon2D" parent="hill" node_paths=PackedStringArray("parentpoly")]
+position = Vector2(2249, 0)
+color = Color(0.805371, 0.982194, 0.998931, 1)
+script = ExtResource("6_i7141")
+parentpoly = NodePath("../CollisionPolygon2D")
+
 [node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(-3000, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
 position = Vector2(-5696, 8136)

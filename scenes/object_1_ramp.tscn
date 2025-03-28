@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://oiiwomrfi1jv"]
+
+[ext_resource type="Texture2D" uid="uid://bdr2g6d25ugni" path="res://assets/hilltexture.png" id="1_ky1yv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adswl"]
+radius = 200.639
+
+[node name="object1ramp" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_adswl")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-160, -152)
+texture = ExtResource("1_ky1yv")
+texture_scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-36.8017, 150.645, -12.8017, 54.6446, 51.1983, -17.3554, 131.198, -49.3554, 243.198, -33.3554, 315.198, 22.6446, 363.198, 110.645, 339.198, 238.645, 267.198, 326.645, 163.198, 350.645, 51.1983, 318.645, -12.8017, 246.645)
