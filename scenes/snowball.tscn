@@ -74,8 +74,8 @@ lifetime = 3.0
 preprocess = 3.0
 emission_shape = 3
 emission_rect_extents = Vector2(1600, 1)
-scale_amount_min = 2.0
-scale_amount_max = 6.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
 
 [node name="stucktimer" type="Timer" parent="."]
 one_shot = true
