@@ -1,11 +1,9 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class Globals : Node2D
 {
-
-    [Signal] public delegate void microsoftEventHandler();
-
+    public int highScore;
     public bool firstboot = true;
 
 }

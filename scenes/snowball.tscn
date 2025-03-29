@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyh0qb6omf2gv"]
+[gd_scene load_steps=7 format=3 uid="uid://cyh0qb6omf2gv"]
 
 [ext_resource type="Texture2D" uid="uid://c6ru525yy27po" path="res://assets/snowball.png" id="1_6tw0o"]
 [ext_resource type="Script" uid="uid://c1s2a1vsbsr86" path="res://scenes/snowballmanager.cs" id="1_dnn3y"]
 [ext_resource type="Script" uid="uid://1lei5xfmxfmk" path="res://scripts/Snowball.cs" id="1_xsgkx"]
+[ext_resource type="PackedScene" uid="uid://cus66e8xsu150" path="res://scenes/game_over.tscn" id="4_svv1h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dnn3y"]
 friction = 0.7
@@ -17,7 +18,7 @@ sball = NodePath("snowball")
 ballui = NodePath("ui")
 radiuslabel = NodePath("ui/radiuslabel")
 
-[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer") groups=["player"]]
+[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer", "gameOver") groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_dnn3y")
 contact_monitor = true
 max_contacts_reported = 3
@@ -28,6 +29,7 @@ growtimer = NodePath("growSnoball")
 snowballcol = NodePath("snowballcol")
 snowballsprite = NodePath("snowballsprite")
 stucktimer = NodePath("../stucktimer")
+gameOver = NodePath("../GameOver")
 
 [node name="snowballcol" type="CollisionShape2D" parent="snowball"]
 shape = SubResource("CircleShape2D_xsgkx")
@@ -84,5 +86,9 @@ scale_amount_max = 8.0
 
 [node name="stucktimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="GameOver" parent="." node_paths=PackedStringArray("snowball") instance=ExtResource("4_svv1h")]
+visible = false
+snowball = NodePath("../snowball")
 
 [connection signal="timeout" from="stucktimer" to="snowball" method="_on_stucktimer_timeout"]
