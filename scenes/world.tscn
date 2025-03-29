@@ -210,9 +210,6 @@ polygon = PackedVector2Array(-15833, 0, 16, -8, 16, 544, 1857.73, 0, 3000, 0, 30
 
 [node name="worldstuff" type="Node2D" parent="."]
 
-[node name="Bird" parent="worldstuff" instance=ExtResource("8_jhx03")]
-position = Vector2(-152, -344)
-
 [node name="ColorRect" type="ColorRect" parent="worldstuff"]
 z_index = -1
 offset_left = -15992.0
