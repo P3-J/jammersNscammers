@@ -11,18 +11,26 @@ public partial class Snowcannon : Node2D
     [Export] TextureProgressBar launchbar;
     [Export] Timer randomSkyItemSpawnTimer;
     [Export] Timer slowmotimer;
+    [Export] Camera2D camundercannon;
 
-    private enum cannonState {aiming, shooting, locked}
-    private cannonState currentCannonState;
+    public enum cannonState {aiming, shooting, locked}
+    public cannonState currentCannonState;
     bool launchedBall;
+    Globals glob;
 
 
     public override void _Ready()
     {
         base._Ready();
+        glob = GetNode<Globals>("/root/Globals");
         launchbar.Visible = false;
         launchbar.Value = 0;
+        camundercannon.Zoom = new Vector2(1,1);
+         
         currentCannonState = cannonState.aiming;
+        camundercannon.MakeCurrent();
+        
+
 
     }
 
@@ -31,6 +39,9 @@ public partial class Snowcannon : Node2D
     {
         base._Process(delta);
 
+        if (glob.firstboot){
+            currentCannonState = cannonState.locked;
+        }
 
         if (currentCannonState == cannonState.aiming){
             var mousePos = GetGlobalMousePosition();
@@ -46,6 +57,10 @@ public partial class Snowcannon : Node2D
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
+
+        if (currentCannonState == cannonState.locked){
+            return;
+        }
 
         if (Input.IsActionJustPressed("lmb")){
             launchbar.Visible = true;

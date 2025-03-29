@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://bdr2g6d25ugni" path="res://assets/hilltexture.png" id="1_ky1yv"]
 
 [node name="object1ramp" type="Node2D"]
+position = Vector2(8, 40)
+rotation = -0.785397
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-128, -72, -24, -144, 24, -112, 104, -80, 160, -16, 184, 56, 96, 120, 0, 144, -80, 128, -136, 64, -152, -8)
+polygon = PackedVector2Array(-128, -72, -24, -144, 24, -112, 104, -80, 160, -16, 186.676, 118.794, 96, 120, 0, 144, -80, 128, -136, 64, -152, -8)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-120, -112)
 scale = Vector2(0.752005, 0.742515)
 texture = ExtResource("1_ky1yv")
 texture_scale = Vector2(0.2, 0.2)
-polygon = PackedVector2Array(-36.8017, 150.645, -12.8017, 54.6446, 53.1911, 10.7742, 128, -48, 191.488, 0, 308.509, 43.0968, 363.198, 110.645, 404.253, 226.258, 267.198, 326.645, 163.198, 350.645, 51.1983, 318.645, -12.8017, 246.645)
+polygon = PackedVector2Array(-36.8017, 150.645, -12.8017, 54.6446, 53.1911, 10.7742, 128, -48, 191.488, 0, 308.509, 43.0968, 363.198, 110.645, 392.767, 219.405, 407.812, 310.827, 163.198, 350.645, 51.1983, 318.645, -12.8017, 246.645)
