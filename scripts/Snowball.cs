@@ -100,7 +100,7 @@ public partial class Snowball : RigidBody2D
         }
     }
 
-    void GrowBall(float growth = 1.05f){
+    public void GrowBall(float growth = 1.05f){
         float growthFactor = growth;
         snowballsprite.Scale = new Vector2(snowballsprite.Scale.X * growthFactor, snowballsprite.Scale.Y * growthFactor);
 
