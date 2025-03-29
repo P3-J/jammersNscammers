@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyh0qb6omf2gv"]
+[gd_scene load_steps=8 format=3 uid="uid://cyh0qb6omf2gv"]
 
 [ext_resource type="Texture2D" uid="uid://c6ru525yy27po" path="res://assets/snowball.png" id="1_6tw0o"]
 [ext_resource type="Script" uid="uid://c1s2a1vsbsr86" path="res://scenes/snowballmanager.cs" id="1_dnn3y"]
 [ext_resource type="Script" uid="uid://1lei5xfmxfmk" path="res://scripts/Snowball.cs" id="1_xsgkx"]
+[ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_i4rw7"]
 [ext_resource type="PackedScene" uid="uid://cus66e8xsu150" path="res://scenes/game_over.tscn" id="4_svv1h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dnn3y"]
@@ -18,7 +19,7 @@ sball = NodePath("snowball")
 ballui = NodePath("ui")
 radiuslabel = NodePath("ui/radiuslabel")
 
-[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer", "gameOver") groups=["player"]]
+[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer", "gameOver", "jumpChargeBar") groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_dnn3y")
 contact_monitor = true
 max_contacts_reported = 3
@@ -30,6 +31,7 @@ snowballcol = NodePath("snowballcol")
 snowballsprite = NodePath("snowballsprite")
 stucktimer = NodePath("../stucktimer")
 gameOver = NodePath("../GameOver")
+jumpChargeBar = NodePath("../ui/TextureProgressBar")
 
 [node name="snowballcol" type="CollisionShape2D" parent="snowball"]
 shape = SubResource("CircleShape2D_xsgkx")
@@ -83,6 +85,18 @@ emission_shape = 3
 emission_rect_extents = Vector2(1600, 1)
 scale_amount_min = 4.0
 scale_amount_max = 8.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ui"]
+offset_left = 43.0
+offset_top = -20.0
+offset_right = 83.0
+offset_bottom = 60.0
+scale = Vector2(0.5, 0.5)
+max_value = 2.0
+value = 2.0
+fill_mode = 2
+texture_progress = ExtResource("4_i4rw7")
+metadata/_edit_use_anchors_ = true
 
 [node name="stucktimer" type="Timer" parent="."]
 one_shot = true
