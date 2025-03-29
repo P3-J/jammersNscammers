@@ -10,7 +10,7 @@ public partial class Rocket : Area2D
             Snowball ball = (Snowball)body;
             // only add charges if less than 2
             int currentCharges = ball.jumpCharges;
-            if (currentCharges < 2)
+            if (currentCharges < 4)
             {
                 ball.jumpCharges++;
                 ball.setJumpChargeBar();
