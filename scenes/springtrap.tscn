@@ -22,7 +22,6 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.58334, -39.8543)
 rotation = -0.261799
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xrq45")
 
 [node name="boing" type="AudioStreamPlayer" parent="."]

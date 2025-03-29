@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=3 uid="uid://40dyb64pdwdh"]
+
+[ext_resource type="Script" uid="uid://3618jhm3tkub" path="res://scenes/objects/Snowflake.cs" id="1_j7bif"]
+[ext_resource type="Texture2D" uid="uid://v0ww88bdo2ae" path="res://assets/snowflake_animation/sprite_00.png" id="1_ncws7"]
+[ext_resource type="Texture2D" uid="uid://jv4brwf4w8xx" path="res://assets/snowflake_animation/sprite_01.png" id="2_j7bif"]
+[ext_resource type="Texture2D" uid="uid://b5dqdf6w3t2v1" path="res://assets/snowflake_animation/sprite_02.png" id="3_312l5"]
+[ext_resource type="Texture2D" uid="uid://7ykqttp34jci" path="res://assets/snowflake_animation/sprite_03.png" id="4_4mla4"]
+[ext_resource type="Texture2D" uid="uid://5x8kfo12t527" path="res://assets/snowflake_animation/sprite_04.png" id="5_5e0lk"]
+[ext_resource type="Texture2D" uid="uid://caeyvrb47ya0m" path="res://assets/snowflake_animation/sprite_05.png" id="6_y0sde"]
+[ext_resource type="Texture2D" uid="uid://vqh1fvtm11v5" path="res://assets/snowflake_animation/sprite_06.png" id="7_dqwrc"]
+[ext_resource type="Texture2D" uid="uid://dlewfxm0x5a10" path="res://assets/snowflake_animation/sprite_07.png" id="8_8p847"]
+[ext_resource type="Texture2D" uid="uid://c04nmpirbkejx" path="res://assets/snowflake_animation/sprite_08.png" id="9_rrgo1"]
+[ext_resource type="Texture2D" uid="uid://br8ox4676r70h" path="res://assets/snowflake_animation/sprite_09.png" id="10_iquan"]
+[ext_resource type="Texture2D" uid="uid://cr2750j5rt3k2" path="res://assets/snowflake_animation/sprite_10.png" id="11_ej1s0"]
+[ext_resource type="Texture2D" uid="uid://dan2qhkfmhw8m" path="res://assets/snowflake_animation/sprite_11.png" id="12_4qyp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go6qi"]
+size = Vector2(258, 258)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t4uy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ncws7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j7bif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_312l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4mla4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5e0lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y0sde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dqwrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8p847")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rrgo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iquan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ej1s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4qyp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Snowflake" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_j7bif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_go6qi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6t4uy")
+autoplay = "default"
+frame = 3
+frame_progress = 0.536994
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

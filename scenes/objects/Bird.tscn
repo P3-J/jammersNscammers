@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://dt7ll52jh5ty2"]
+
+[ext_resource type="Script" uid="uid://dcqdxbwcpjaqi" path="res://scenes/objects/Bird.cs" id="1_barf0"]
+[ext_resource type="Texture2D" uid="uid://cmnnuid63kxc7" path="res://assets/baldeaglespritesheet.png" id="1_hvhr7"]
+[ext_resource type="AudioStream" uid="uid://dv38n2xtagabe" path="res://assets/caaaw.mp3" id="3_jjls6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdc3"]
+atlas = ExtResource("1_hvhr7")
+region = Rect2(0, 0, 820, 820)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barf0"]
+atlas = ExtResource("1_hvhr7")
+region = Rect2(820, 0, 820, 820)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjls6"]
+atlas = ExtResource("1_hvhr7")
+region = Rect2(1640, 0, 820, 820)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqyxo"]
+atlas = ExtResource("1_hvhr7")
+region = Rect2(2460, 0, 820, 820)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlkxs"]
+atlas = ExtResource("1_hvhr7")
+region = Rect2(3280, 0, 820, 820)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcp7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhdc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjls6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqyxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlkxs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxb1g"]
+size = Vector2(571, 360)
+
+[node name="Bird" type="Area2D"]
+script = ExtResource("1_barf0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xcp7u")
+frame_progress = 0.583882
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-37.5, 29)
+shape = SubResource("RectangleShape2D_xxb1g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jjls6")
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_caaw_finished"]
