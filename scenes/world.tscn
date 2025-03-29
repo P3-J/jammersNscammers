@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=15 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://mo182i8b3eb2" path="res://scenes/snowcannon.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://deejfi5nec2mw" path="res://scenes/object_2_stick.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://tixorf3bo8gi" path="res://scenes/springtrap.tscn" id="4_qfnet"]
-[ext_resource type="PackedScene" uid="uid://40dyb64pdwdh" path="res://scenes/objects/snowflake.tscn" id="5_i7141"]
-[ext_resource type="PackedScene" uid="uid://dorpiv1lptwyn" path="res://scenes/objects/fire.tscn" id="6_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://bd2mm42vtvk08" path="res://scenes/randomshit.tscn" id="5_7r4gi"]
 [ext_resource type="Script" uid="uid://c6s0rp4uovkfl" path="res://scripts/polyfill.cs" id="6_i7141"]
+[ext_resource type="Texture2D" uid="uid://rxcupwjur36t" path="res://assets/person.png" id="7_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://6okwb2dbbe2y" path="res://scenes/object_lagoon.tscn" id="7_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://bel5ky3eg3lkh" path="res://assets/apartment.png" id="8_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="10_w7kh3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71j4m"]
 size = Vector2(18, 50)
@@ -15,19 +18,23 @@ size = Vector2(18, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(80, 136)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7141"]
+size = Vector2(80, 144)
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision")]
 process_mode = 1
-position = Vector2(1, 0)
 script = ExtResource("1_nnsk1")
 hillcollision = NodePath("hill/CollisionPolygon2D")
 objectRamp = ExtResource("2_4wyf3")
 objectWall = ExtResource("3_k0juu")
 objectSpring = ExtResource("4_qfnet")
-objectSnowflake = ExtResource("5_i7141")
-objectFire = ExtResource("6_4mrxx")
+objectIceBall = ExtResource("5_7r4gi")
+objectSkiMan = ExtResource("10_w7kh3")
+objectLagoon = ExtResource("7_e3hyu")
 
-[node name="snowcannon" parent="." instance=ExtResource("2_rwgxs")]
+[node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer") instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -16)
+randomSkyItemSpawnTimer = NodePath("../worldstuff/worldItemSpawnTimer")
 
 [node name="Camera2D" type="Camera2D" parent="snowcannon"]
 position = Vector2(355, -168)
@@ -37,7 +44,7 @@ position = Vector2(-3000, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hill"]
 position = Vector2(2253, 0)
-polygon = PackedVector2Array(747, 0, 24635, -21560, 24435, 0)
+polygon = PackedVector2Array(747, 0, 24619, -21484.8, 24435, 0, 24451, 7320, 723, 7424)
 
 [node name="Polygon2D" type="Polygon2D" parent="hill" node_paths=PackedStringArray("parentpoly")]
 z_index = 1
@@ -53,21 +60,37 @@ position = Vector2(-3000, 0)
 position = Vector2(-5696, 8136)
 polygon = PackedVector2Array(-10136, -8136, 8696, -8136, -616, 1720)
 
+[node name="Polygon2D" type="Polygon2D" parent="ground"]
+color = Color(0.215391, 0.67251, 0.34181, 1)
+polygon = PackedVector2Array(-15833, 0, 3000, 0, 3064, 9344, -9992, 9784)
+
 [node name="worldstuff" type="Node2D" parent="."]
 
 [node name="person" type="RigidBody2D" parent="worldstuff"]
-position = Vector2(-984, -48)
+position = Vector2(-1041, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldstuff/person"]
 position = Vector2(-1, 15)
 shape = SubResource("RectangleShape2D_71j4m")
 
+[node name="Sprite2D" type="Sprite2D" parent="worldstuff/person"]
+position = Vector2(-1, 15)
+scale = Vector2(0.359375, 0.375)
+texture = ExtResource("7_4mrxx")
+flip_h = true
+
 [node name="person2" type="RigidBody2D" parent="worldstuff"]
-position = Vector2(-1056, -48)
+position = Vector2(-1081, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldstuff/person2"]
 position = Vector2(-1, 15)
 shape = SubResource("RectangleShape2D_71j4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="worldstuff/person2"]
+position = Vector2(-1, 15)
+scale = Vector2(0.359375, 0.375)
+texture = ExtResource("7_4mrxx")
+flip_h = true
 
 [node name="house" type="RigidBody2D" parent="worldstuff"]
 position = Vector2(-1184, -48)
@@ -77,10 +100,48 @@ mass = 10.0
 position = Vector2(24, -24)
 shape = SubResource("RectangleShape2D_qfnet")
 
+[node name="Sprite2D" type="Sprite2D" parent="worldstuff/house"]
+texture_filter = 1
+position = Vector2(-129, -88)
+scale = Vector2(2.25, 2.125)
+texture = ExtResource("8_7r4gi")
+
 [node name="ColorRect" type="ColorRect" parent="worldstuff"]
 z_index = -1
-offset_left = -15848.0
-offset_top = -26592.0
-offset_right = 24152.0
-offset_bottom = 13408.0
+offset_left = -15849.0
+offset_top = -26488.0
+offset_right = 24151.0
+offset_bottom = 13512.0
 color = Color(0.49977, 0.572181, 0.793172, 1)
+
+[node name="house2" type="RigidBody2D" parent="worldstuff"]
+position = Vector2(-1184, -48)
+mass = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldstuff/house2"]
+position = Vector2(23, -24)
+shape = SubResource("RectangleShape2D_i7141")
+
+[node name="Sprite2D" type="Sprite2D" parent="worldstuff/house2"]
+texture_filter = 1
+position = Vector2(23, -24)
+scale = Vector2(1.25, 1.125)
+texture = ExtResource("8_7r4gi")
+
+[node name="person3" type="RigidBody2D" parent="worldstuff"]
+position = Vector2(-1001, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldstuff/person3"]
+position = Vector2(-1, 15)
+shape = SubResource("RectangleShape2D_71j4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="worldstuff/person3"]
+position = Vector2(-1, 15)
+scale = Vector2(0.359375, 0.375)
+texture = ExtResource("7_4mrxx")
+flip_h = true
+
+[node name="worldItemSpawnTimer" type="Timer" parent="worldstuff"]
+wait_time = 2.0
+
+[connection signal="timeout" from="worldstuff/worldItemSpawnTimer" to="." method="_on_world_item_spawn_timer_timeout"]
