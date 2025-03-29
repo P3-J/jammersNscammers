@@ -18,6 +18,16 @@ public partial class Snowball : RigidBody2D
     Godot.Collections.Array<Node2D> colbodies;
 
 
+    /// <summary>
+    /// ignore
+    /// </summary>
+    Vector2 ogSpriteScale;
+    float ogRadius;
+    Vector2 ogZoom;
+    float ogMass;
+    Vector2 ogGroundCheck;
+
+
     public void SetSnowballCameraAsCurrent(){
         sballCamera.MakeCurrent();
     }
@@ -26,6 +36,14 @@ public partial class Snowball : RigidBody2D
     {
         base._Ready();
         colradiuss = (float)snowballcol.Shape.Get("radius");
+        
+        ogSpriteScale = snowballsprite.Scale;
+        ogRadius = colradiuss;
+        ogZoom = sballCamera.Zoom;
+        ogMass = Mass;
+        ogGroundCheck = groundcheck.Scale;
+
+
     }
 
     public override void _Process(double delta)
@@ -35,7 +53,6 @@ public partial class Snowball : RigidBody2D
         colbodies = GetCollidingBodies(); 
 
         if (stucktimer.IsStopped()){
-            GD.Print("started");
             stucktimer.Start();
             lastpos = GlobalPosition;
         }
@@ -47,6 +64,10 @@ public partial class Snowball : RigidBody2D
         if (collider is StaticBody2D &&growtimer.IsStopped()){
             StaticBody2D col = (StaticBody2D)collider;
             if (col.IsInGroup("hill")){
+                groundcheck.Rotation += 45f;
+                if (groundcheck.Rotation > 360f){
+                    groundcheck.Rotation = 0;
+                }
                 GrowBall();
                 growtimer.Start();
             }
@@ -57,8 +78,18 @@ public partial class Snowball : RigidBody2D
     private void _on_stucktimer_timeout(){
         GD.Print(lastpos, GlobalPosition);
         if (lastpos == GlobalPosition){
+            ResetSceneStuff();
             GetTree().ChangeSceneToFile("res://scenes/world.tscn");
+            
         }
+    }
+
+    public void ResetSceneStuff(){
+        snowballsprite.Scale = ogSpriteScale;
+        snowballcol.Shape.Set("radius", ogRadius);
+        sballCamera.Zoom = ogZoom;
+        Mass = ogMass;
+        groundcheck.Scale = ogGroundCheck;
     }
 
     public override void _Input(InputEvent @event)
@@ -78,6 +109,7 @@ public partial class Snowball : RigidBody2D
         colradiuss = (float)snowballcol.Shape.Get("radius");
 
         //snowballcol.Shape.Set("radius", colRadius * growthFactor);
+        
 
         Tween tween1 = GetTree().CreateTween();
 		tween1.TweenProperty(snowballcol.Shape, "radius", colradiuss * growthFactor, 0.5)

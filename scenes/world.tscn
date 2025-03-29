@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=9 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://mo182i8b3eb2" path="res://scenes/snowcannon.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://deejfi5nec2mw" path="res://scenes/object_2_stick.tscn" id="3_k0juu"]
+[ext_resource type="PackedScene" uid="uid://tixorf3bo8gi" path="res://scenes/springtrap.tscn" id="4_qfnet"]
 [ext_resource type="Script" uid="uid://c6s0rp4uovkfl" path="res://scripts/polyfill.cs" id="6_i7141"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71j4m"]
@@ -14,10 +15,12 @@ size = Vector2(80, 136)
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision")]
 process_mode = 1
+position = Vector2(1, 0)
 script = ExtResource("1_nnsk1")
 hillcollision = NodePath("hill/CollisionPolygon2D")
 objectRamp = ExtResource("2_4wyf3")
 objectWall = ExtResource("3_k0juu")
+objectSpring = ExtResource("4_qfnet")
 
 [node name="snowcannon" parent="." instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -16)

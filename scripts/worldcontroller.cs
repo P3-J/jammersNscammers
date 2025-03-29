@@ -7,8 +7,9 @@ public partial class worldcontroller : Node2D
     [Export] CollisionPolygon2D hillcollision;
     [Export] PackedScene objectRamp;
     [Export] PackedScene objectWall;
+    [Export] PackedScene objectSpring;
 
-    private enum groundObjects {Ramp, Wall}
+    private enum groundObjects {Ramp, Wall, Spring}
 
     public override void _Ready()
     {
@@ -33,23 +34,32 @@ public partial class worldcontroller : Node2D
 
         Random rand = new Random();
         int lastx = 0;
-        for (int i = 1; i < 40; i++)
+        for (int i = 1; i <  40; i++)
         {
 
             int selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
             string[] names = Enum.GetNames(typeof(groundObjects));
 
             string nameofobj = names[selection];
+
             Node2D obj = spawnObject(nameofobj);
             GetTree().CurrentScene.AddChild(obj);
             
             int distancebetween = lastx + rand.Next(200,1000);
-            int randomizedYdiff  = rand.Next(-90, 100);
+            int randomizedYdiff = 0;
+
+            if (nameofobj != "Spring"){
+                randomizedYdiff  = rand.Next(-90, 100);
+            } else {
+               distancebetween = lastx + rand.Next(200,400); 
+            }
+            
 
             lastx = distancebetween;
             obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
 
         }
+    
     }
 
     private Node2D spawnObject(string Name){
@@ -61,6 +71,9 @@ public partial class worldcontroller : Node2D
             case "Wall":
                 Node2D wall = objectWall.Instantiate<Node2D>();
                 return wall;
+            case "Spring":
+                Area2D spring = objectSpring.Instantiate<Area2D>();
+                return spring;
         }
 
         return null;

@@ -7,7 +7,6 @@ public partial class Snowcannon : Node2D
     [Export] Marker2D target;
     [Export] Marker2D launchspot;
     [Export] Node2D launcherparent;
-    [Export] PackedScene snowball;
     [Export] TextureProgressBar launchbar;
 
     private enum cannonState {aiming, shooting, locked}
@@ -83,6 +82,7 @@ public partial class Snowcannon : Node2D
 
     private void launchSnowBall()
     {
+        PackedScene snowball = ResourceLoader.Load<PackedScene>("uid://cyh0qb6omf2gv");
         snowballmanager sballscene = snowball.Instantiate<snowballmanager>();
         GetTree().CurrentScene.AddChild(sballscene);
         sballscene.GlobalPosition = launchspot.GlobalPosition;
