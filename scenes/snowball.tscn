@@ -13,7 +13,7 @@ sball = NodePath("snowball")
 ballui = NodePath("ui")
 radiuslabel = NodePath("ui/radiuslabel")
 
-[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer")]
+[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer") groups=["player"]]
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_xsgkx")
@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_xsgkx")
 
 [node name="snowballsprite" type="Sprite2D" parent="snowball"]
 position = Vector2(0, -3.8147e-06)
-scale = Vector2(0.163386, 0.160387)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_6tw0o")
 
 [node name="groundcheckray" type="RayCast2D" parent="snowball"]
@@ -58,8 +58,8 @@ scale_amount_max = 5.0
 [node name="radiuslabel" type="Label" parent="ui"]
 offset_left = -56.0
 offset_top = -128.0
-offset_right = 60.0
-offset_bottom = -35.0
+offset_right = 53.0
+offset_bottom = -57.0
 theme_override_font_sizes/font_size = 24
 text = "10
 "

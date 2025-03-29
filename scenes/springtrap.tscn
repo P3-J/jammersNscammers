@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://tixorf3bo8gi"]
+
+[ext_resource type="Texture2D" uid="uid://bswf3qgx6jw0r" path="res://assets/springtrap.png" id="1_dvtey"]
+[ext_resource type="Script" uid="uid://dqxod4lciwyf5" path="res://scripts/Springtrap.cs" id="1_xrq45"]
+[ext_resource type="AudioStream" uid="uid://b3041cddgokgn" path="res://assets/boing.mp3" id="3_g3bmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrq45"]
+size = Vector2(54.6274, 48.4556)
+
+[node name="springtrap" type="Area2D" node_paths=PackedStringArray("boing")]
+script = ExtResource("1_xrq45")
+boing = NodePath("boing")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.29513, -25.8099)
+rotation = -0.261799
+scale = Vector2(0.869231, 1.23846)
+texture = ExtResource("1_dvtey")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.58334, -39.8543)
+rotation = -0.261799
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xrq45")
+
+[node name="boing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g3bmk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="boing" to="." method="_on_boing_finished"]
