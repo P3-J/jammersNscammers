@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=13 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6okwb2dbbe2y" path="res://scenes/object_lagoon.tscn" id="7_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://firr45ch28q6" path="res://scenes/objects/Bird.tscn" id="8_jhx03"]
 [ext_resource type="PackedScene" uid="uid://c3pqjb3dj260u" path="res://scenes/objects/snowflake.tscn" id="9_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://btd10nj170tv7" path="res://scenes/objects/rocket.tscn" id="10_q5onr"]
 [ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="10_w7kh3"]
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision")]
@@ -24,6 +25,7 @@ objectSkiMan = ExtResource("10_w7kh3")
 objectLagoon = ExtResource("7_e3hyu")
 objectBird = ExtResource("8_jhx03")
 objectSnowflake = ExtResource("9_o8fc1")
+objectRocket = ExtResource("10_q5onr")
 
 [node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer") instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -56)
