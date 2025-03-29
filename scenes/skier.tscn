@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8na4jm28fpye"]
+
+[ext_resource type="Texture2D" uid="uid://b17l832d781fs" path="res://assets/gottagofastskier.png" id="1_r4xse"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r4xse"]
+friction = 0.38
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xtyy"]
+size = Vector2(120, 48)
+
+[node name="skier" type="RigidBody2D"]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_r4xse")
+gravity_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 8)
+shape = SubResource("RectangleShape2D_4xtyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r4xse")
