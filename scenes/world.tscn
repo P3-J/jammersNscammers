@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=18 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6okwb2dbbe2y" path="res://scenes/object_lagoon.tscn" id="7_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://firr45ch28q6" path="res://scenes/objects/Bird.tscn" id="8_jhx03"]
 [ext_resource type="PackedScene" uid="uid://c3pqjb3dj260u" path="res://scenes/objects/snowflake.tscn" id="9_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://btd10nj170tv7" path="res://scenes/objects/rocket.tscn" id="10_jhx03"]
 [ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="10_w7kh3"]
 [ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="11_q5onr"]
 
@@ -139,6 +140,7 @@ objectBird = ExtResource("8_jhx03")
 objectSnowflake = ExtResource("9_o8fc1")
 snowcannon = NodePath("snowcannon")
 startanim = NodePath("snowcannon/startanimplayer")
+objectRocket = ExtResource("10_jhx03")
 skipintro = true
 
 [node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer", "camundercannon") instance=ExtResource("2_rwgxs")]
@@ -199,11 +201,11 @@ position = Vector2(-3000, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
 position = Vector2(-5696, 8136)
-polygon = PackedVector2Array(-10136, -8136, 8696, -8136, -616, 1720)
+polygon = PackedVector2Array(-10136, -8136, 5720, -8144, 5720, -7600, 7544, -8136, 8696, -8136, -616, 1720)
 
 [node name="Polygon2D" type="Polygon2D" parent="ground"]
 color = Color(0.805371, 0.982194, 0.998931, 1)
-polygon = PackedVector2Array(-15833, 0, 3000, 0, 3064, 9344, -9992, 9784)
+polygon = PackedVector2Array(-15833, 0, 16, -8, 16, 544, 1857.73, 0, 3000, 0, 3064, 9344, -9992, 9784)
 
 [node name="worldstuff" type="Node2D" parent="."]
 

@@ -15,6 +15,7 @@ public partial class worldcontroller : Node2D
     [Export] PackedScene objectSnowflake;
     [Export] Snowcannon snowcannon;
     [Export] AnimationPlayer startanim;
+    [Export] PackedScene objectRocket;
     [Export] bool skipintro = false;
 
     private enum groundObjects {Ramp, Wall, Spring, Lagoon}
@@ -92,6 +93,13 @@ public partial class worldcontroller : Node2D
             lastobjName = nameofobj;
             lastx = distancebetween;
             obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
+            
+            if (rand.Next(1, 10) == 1)
+            {
+                Area2D rocket = objectRocket.Instantiate<Area2D>();
+                GetTree().CurrentScene.AddChild(rocket);
+                rocket.GlobalPosition = new Vector2(obj.GlobalPosition.X, obj.GlobalPosition.Y - 200f);
+            }
 
         }
     
