@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cus66e8xsu150"]
+[gd_scene load_steps=3 format=3 uid="uid://cus66e8xsu150"]
 
 [ext_resource type="Script" uid="uid://bnrdxw6i6amxl" path="res://scenes/GameOver.cs" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="2_wqhvx"]
 
 [node name="GameOver" type="CanvasLayer" node_paths=PackedStringArray("snowBallSizeLabel", "highScoreText", "highScoreValue", "tryAgainButton")]
 script = ExtResource("1_xeevv")
@@ -10,10 +11,10 @@ highScoreValue = NodePath("PanelContainer/MarginContainer/VBoxContainer/VBoxCont
 tryAgainButton = NodePath("PanelContainer/MarginContainer/VBoxContainer/TryAgainButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 1202.0
-offset_bottom = 898.0
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 1288.0
+offset_bottom = 912.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(1200, 900)
@@ -33,6 +34,7 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Container"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_wqhvx")
 theme_override_font_sizes/normal_font_size = 80
 text = "Final Snowball Size:
 "
@@ -41,6 +43,7 @@ horizontal_alignment = 1
 
 [node name="SnowBallSize" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Container"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_wqhvx")
 theme_override_font_sizes/normal_font_size = 80
 fit_content = true
 horizontal_alignment = 1
@@ -51,6 +54,7 @@ layout_mode = 2
 [node name="HighScoreText" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_wqhvx")
 theme_override_font_sizes/normal_font_size = 80
 text = "High Score:
 "
@@ -59,6 +63,7 @@ horizontal_alignment = 1
 
 [node name="HighScoreValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_wqhvx")
 theme_override_font_sizes/normal_font_size = 80
 fit_content = true
 horizontal_alignment = 1
@@ -69,6 +74,7 @@ size_flags_vertical = 3
 
 [node name="TryAgainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
 theme_override_font_sizes/font_size = 80
 text = "Try Again"
 

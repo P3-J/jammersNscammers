@@ -116,13 +116,13 @@ public partial class Snowcannon : Node2D
 
     private int GetPowerBasedOnLaunchBar(){
 
-        if (launchbar.Value < 33){
-            return 1000;
+        if (launchbar.Value < 50){
+            return 3000;
         }
-        if (launchbar.Value < 79){
-            return 2000;
+        if (launchbar.Value > 64){
+            return 5000;
         }
-        return 6000;
+        return 8000;
     }
 
     private void _on_slowmotimer_timeout(){

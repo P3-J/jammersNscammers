@@ -50,8 +50,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxb1g"]
 size = Vector2(144, 88)
 
-[node name="Bird" type="Area2D"]
+[node name="Bird" type="Area2D" node_paths=PackedStringArray("caaw")]
 script = ExtResource("1_barf0")
+caaw = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -8)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=19 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btd10nj170tv7" path="res://scenes/objects/rocket.tscn" id="10_jhx03"]
 [ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="10_w7kh3"]
 [ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="11_q5onr"]
+[ext_resource type="Texture2D" uid="uid://dgk1jxp530yjj" path="res://assets/snowytree.png" id="14_o8fc1"]
 
 [sub_resource type="Animation" id="Animation_q5onr"]
 length = 0.001
@@ -219,6 +220,919 @@ color = Color(0.49977, 0.572181, 0.793172, 1)
 
 [node name="worldItemSpawnTimer" type="Timer" parent="worldstuff"]
 wait_time = 2.0
+
+[node name="trees" type="Node2D" parent="worldstuff"]
+modulate = Color(1, 1, 1, 0.396078)
+
+[node name="tree" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(216, -296)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree2" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(384, -392)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree3" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(576.777, -621.934)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree4" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(664, -656)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree5" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(944, -912)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree6" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1152, -1144)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree7" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1392.78, -1367.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree8" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1560.78, -1463.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree9" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1753.55, -1693.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree10" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1840.78, -1727.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree11" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2120.78, -1983.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree12" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2328.78, -2215.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree13" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2800.78, -2631.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree14" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2968.78, -2727.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree15" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3161.55, -2957.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree16" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3248.78, -2991.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree17" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3528.78, -3247.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree18" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3736.78, -3479.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree19" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3984.78, -3695.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree20" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4152.78, -3791.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree21" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4345.55, -4021.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree22" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4432.78, -4055.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree23" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4712.78, -4311.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree24" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4920.78, -4543.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree25" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(5592.78, -5144)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree26" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(5760.78, -5240)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree27" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(5953.55, -5469.94)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree28" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(6040.78, -5504)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree29" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(6320.78, -5760)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree30" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(6528.78, -5992)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree31" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(6769.55, -6215.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree32" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(6937.55, -6311.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree33" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(7130.33, -6541.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree34" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(7217.55, -6575.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree35" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(7497.55, -6831.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree36" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(7705.55, -7063.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree37" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(8177.55, -7479.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree38" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(8345.55, -7575.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree39" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(8538.33, -7805.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree40" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(8625.55, -7839.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree41" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(8905.55, -8095.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree42" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9113.55, -8327.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree43" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9361.55, -8543.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree44" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9529.55, -8639.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree45" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9722.33, -8869.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree46" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9809.55, -8903.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree47" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10089.6, -9159.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree48" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10297.6, -9391.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree49" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9632.78, -8768)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree50" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9800.78, -8864)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree51" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(9993.55, -9093.93)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree52" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10080.8, -9128)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree53" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10360.8, -9384)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree54" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10568.8, -9616)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree55" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10809.6, -9839.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree56" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(10977.6, -9935.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree57" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(11170.3, -10165.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree58" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(11257.6, -10199.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree59" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(11537.6, -10455.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree60" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(11745.6, -10687.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree61" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(12217.6, -11103.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree62" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(12385.6, -11199.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree63" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(12578.3, -11429.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree64" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(12665.6, -11463.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree65" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(12945.6, -11719.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree66" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(13153.6, -11951.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree67" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(13401.6, -12167.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree68" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(13569.6, -12263.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree69" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(13762.3, -12493.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree70" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(13849.6, -12527.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree71" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(14129.6, -12783.2)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree72" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(14337.6, -13015.2)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree73" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(432.777, -480)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree74" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(600.777, -576)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree75" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(793.553, -805.934)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree76" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(880.777, -840)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree77" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1160.78, -1096)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree78" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1368.78, -1328)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree79" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1609.55, -1551.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree80" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1777.55, -1647.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree81" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1970.33, -1877.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree82" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2057.55, -1911.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree83" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2337.55, -2167.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree84" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2545.55, -2399.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree85" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3017.55, -2815.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree86" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3185.55, -2911.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree87" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3378.33, -3141.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree88" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3465.55, -3175.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree89" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3745.55, -3431.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree90" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3953.55, -3663.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree91" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4201.55, -3879.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree92" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4369.55, -3975.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree93" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4562.33, -4205.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree94" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4649.55, -4239.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree95" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4929.55, -4495.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree96" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(5137.55, -4727.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree97" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(216, -296)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree98" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(384, -392)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree99" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(576.777, -621.934)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree100" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(664, -656)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree101" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(944, -912)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree102" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1152, -1144)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree103" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1392.78, -1367.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree104" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1560.78, -1463.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree105" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1753.55, -1693.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree106" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(1840.78, -1727.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree107" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2120.78, -1983.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree108" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2328.78, -2215.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree109" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2800.78, -2631.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree110" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(2968.78, -2727.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree111" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3161.55, -2957.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree112" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3248.78, -2991.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree113" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3528.78, -3247.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree114" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3736.78, -3479.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+flip_h = true
+
+[node name="tree115" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(3984.78, -3695.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree116" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4152.78, -3791.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree117" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4345.55, -4021.16)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree118" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4432.78, -4055.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree119" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4712.78, -4311.22)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree120" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(4920.78, -4543.22)
+rotation = -0.785397
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree121" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-1542.91, 27.8559)
+rotation = -0.261799
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree122" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-1320, -1.99999)
+rotation = -0.261799
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree123" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-2464, 304)
+rotation = -0.261799
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree124" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-1992, 288)
+rotation = -0.261799
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree125" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-1062.91, -60.1442)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o8fc1")
+
+[node name="tree126" type="Sprite2D" parent="worldstuff/trees"]
+z_index = -1
+position = Vector2(-280, -48)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_o8fc1")
 
 [node name="assetcleararea" type="Area2D" parent="."]
 

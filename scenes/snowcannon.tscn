@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
 [ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="2_ahx1a"]
 [ext_resource type="Texture2D" uid="uid://byf46fl578l64" path="res://assets/cannonbarrel.png" id="3_ti4ob"]
-[ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_ag0j6"]
+[ext_resource type="Texture2D" uid="uid://dgtw84vjvnjnh" path="res://assets/chargebarprogress.png" id="4_i03wu"]
 [ext_resource type="Texture2D" uid="uid://fvnffnd63vhg" path="res://assets/fillbar.png" id="5_3vq1d"]
 [ext_resource type="Texture2D" uid="uid://db3q2m0swjn1t" path="res://assets/lmb.png" id="7_cjiui"]
 [ext_resource type="Texture2D" uid="uid://cfeore1f6dgjo" path="res://assets/spacebar.png" id="8_i03wu"]
@@ -40,9 +40,9 @@ offset_left = -96.0
 offset_top = -112.0
 offset_right = 96.0
 offset_bottom = -94.0
-value = 79.0
+value = 63.0
 nine_patch_stretch = true
-texture_under = ExtResource("4_ag0j6")
+texture_under = ExtResource("4_i03wu")
 texture_progress = ExtResource("5_3vq1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,15 +56,15 @@ wait_time = 0.1
 one_shot = true
 
 [node name="space" type="Sprite2D" parent="."]
-position = Vector2(104, -176)
+position = Vector2(136, -184)
 texture = ExtResource("7_cjiui")
 
 [node name="Label" type="Label" parent="space"]
 texture_filter = 1
-offset_left = -72.0
-offset_top = -88.0
-offset_right = 81.0
-offset_bottom = -39.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 73.0
+offset_bottom = 4.0
 theme_override_fonts/font = ExtResource("8_t5dvk")
 theme_override_font_sizes/font_size = 22
 text = "Move mouse to aim
@@ -74,19 +74,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="mouse" type="Sprite2D" parent="."]
-position = Vector2(-104, -176)
+position = Vector2(-72, -184)
 texture = ExtResource("8_i03wu")
 
 [node name="Label2" type="Label" parent="mouse"]
 texture_filter = 1
 offset_left = -72.0
-offset_top = -88.0
+offset_top = -80.0
 offset_right = 81.0
-offset_bottom = -39.0
+offset_bottom = -25.0
 theme_override_fonts/font = ExtResource("8_t5dvk")
 theme_override_font_sizes/font_size = 22
-text = "Use Space to slam
-towards the ground"
+text = "On ground: jumps
+In air: slams down"
 horizontal_alignment = 1
 
 [connection signal="timeout" from="slowmotimer" to="." method="_on_slowmotimer_timeout"]
