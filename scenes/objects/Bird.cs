@@ -23,4 +23,13 @@ public partial class Bird : Area2D
     {
         CallDeferred("queue_free");
     }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        Vector2 newglob = GlobalPosition;
+        newglob.Y += 1;
+        newglob.X -= 2;
+        GlobalPosition = newglob;
+    }
 }

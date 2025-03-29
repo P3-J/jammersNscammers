@@ -1,20 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://oiiwomrfi1jv"]
+[gd_scene load_steps=2 format=3 uid="uid://oiiwomrfi1jv"]
 
 [ext_resource type="Texture2D" uid="uid://bdr2g6d25ugni" path="res://assets/hilltexture.png" id="1_ky1yv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_adswl"]
-radius = 144.222
 
 [node name="object1ramp" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_adswl")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-128, -72, -24, -144, 24, -112, 104, -80, 160, -16, 184, 56, 96, 120, 0, 144, -80, 128, -136, 64, -152, -8)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-120, -112)
 scale = Vector2(0.752005, 0.742515)
 texture = ExtResource("1_ky1yv")
 texture_scale = Vector2(0.2, 0.2)
-polygon = PackedVector2Array(-36.8017, 150.645, -12.8017, 54.6446, 51.1983, -17.3554, 128, -48, 240, -32, 312, 16, 363.198, 110.645, 339.198, 238.645, 267.198, 326.645, 163.198, 350.645, 51.1983, 318.645, -12.8017, 246.645)
+polygon = PackedVector2Array(-36.8017, 150.645, -12.8017, 54.6446, 53.1911, 10.7742, 128, -48, 191.488, 0, 308.509, 43.0968, 363.198, 110.645, 404.253, 226.258, 267.198, 326.645, 163.198, 350.645, 51.1983, 318.645, -12.8017, 246.645)

@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd2mm42vtvk08"]
+[gd_scene load_steps=4 format=3 uid="uid://bd2mm42vtvk08"]
 
 [ext_resource type="Texture2D" uid="uid://bdr2g6d25ugni" path="res://assets/hilltexture.png" id="1_d4h78"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d4h78"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5rdg"]
 radius = 62.0725
 
 [node name="randomshit" type="RigidBody2D"]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_d4h78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g5rdg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://40dyb64pdwdh"]
+[gd_scene load_steps=16 format=3 uid="uid://c3pqjb3dj260u"]
 
 [ext_resource type="Script" uid="uid://3618jhm3tkub" path="res://scenes/objects/Snowflake.cs" id="1_j7bif"]
 [ext_resource type="Texture2D" uid="uid://v0ww88bdo2ae" path="res://assets/snowflake_animation/sprite_00.png" id="1_ncws7"]

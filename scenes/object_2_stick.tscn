@@ -23,13 +23,13 @@ polygon = PackedVector2Array(-14.1421, -59.397, 121.622, 42.4264, -11.3137, 39.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(65.0538, -19.5601)
-scale = Vector2(2, 1.543)
+position = Vector2(77.5384, -9.99743)
+scale = Vector2(2.39014, 1.84183)
 texture = ExtResource("1_hxn8e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-62.2254, -22.3885)
-scale = Vector2(2, 1.543)
+position = Vector2(-74.4444, -11.4116)
+scale = Vector2(2.38184, 1.88603)
 texture = ExtResource("1_hxn8e")
 flip_h = true
