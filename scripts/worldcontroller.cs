@@ -51,7 +51,7 @@ public partial class worldcontroller : Node2D
         Random rand = new Random();
         int lastx = 500;
         string lastobjName = "";
-        int objCount = 50;
+        int objCount = 100;
         for (int i = 1; i <  objCount; i++)
         {
 
@@ -155,7 +155,7 @@ public partial class worldcontroller : Node2D
 
         
         Node2D obj = spawnObject(objName);
-        int randomx = rand.Next(1000, 25000);
+        int randomx = rand.Next(1000, 40000);
         
         AddChild(obj);
         RigidBody2D rigidObj = (RigidBody2D)obj;
@@ -172,9 +172,9 @@ public partial class worldcontroller : Node2D
         Random rand = new Random();
         for (int i = 1; i <  40; i++)
         {
-            float x = rand.Next(3000, 25000);
-            float y = -(x * 0.9f) - (rand.Next(900,5000));
+            float x = rand.Next(3000, 40000);
 
+            float y = -(x * 0.9f) - (rand.Next(900,5000));
             string objName = "";
             
             switch (rand.Next(0,2)){

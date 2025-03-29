@@ -15,7 +15,7 @@ public partial class Bird : Area2D
             float oldX = ball.LinearVelocity.X;
             float newX = oldX < 0 ? oldX * -1 : oldX;
             newX += 500f;
-            ball.LinearVelocity = new Vector2(newX, -2000);
+            ball.LinearVelocity = new Vector2(newX, ball.LinearVelocity.Y - 1000);
         }
     }
 
