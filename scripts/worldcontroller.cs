@@ -4,12 +4,33 @@ using Godot;
 public partial class worldcontroller : Node2D
 {
     Globals glob;
-    [Export] CollisionPolygon2D hillcollision;
-    [Export] PackedScene objectRamp;
-    [Export] PackedScene objectWall;
-    [Export] PackedScene objectSpring;
 
-    private enum groundObjects {Ramp, Wall, Spring}
+    [Export]
+    CollisionPolygon2D hillcollision;
+
+    [Export]
+    PackedScene objectRamp;
+
+    [Export]
+    PackedScene objectWall;
+
+    [Export]
+    PackedScene objectSpring;
+
+    [Export]
+    PackedScene objectSnowflake;
+
+    [Export]
+    PackedScene objectFire;
+
+    private enum groundObjects
+    {
+        Ramp,
+        Wall,
+        Spring,
+        Snowflake,
+        Fire,
+    }
 
     public override void _Ready()
     {
@@ -23,7 +44,6 @@ public partial class worldcontroller : Node2D
 
     private void TestPrint()
     {
-
         //GetTree().Paused = true;
     }
 
@@ -34,9 +54,8 @@ public partial class worldcontroller : Node2D
 
         Random rand = new Random();
         int lastx = 0;
-        for (int i = 1; i <  40; i++)
+        for (int i = 1; i < 40; i++)
         {
-
             int selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
             string[] names = Enum.GetNames(typeof(groundObjects));
 
@@ -44,27 +63,32 @@ public partial class worldcontroller : Node2D
 
             Node2D obj = spawnObject(nameofobj);
             GetTree().CurrentScene.AddChild(obj);
-            
-            int distancebetween = lastx + rand.Next(200,1000);
+
+            int distancebetween = lastx + rand.Next(200, 1000);
             int randomizedYdiff = 0;
 
-            if (nameofobj != "Spring"){
-                randomizedYdiff  = rand.Next(-90, 100);
-            } else {
-               distancebetween = lastx + rand.Next(200,400); 
+            if (nameofobj != "Spring")
+            {
+                randomizedYdiff = rand.Next(-90, 100);
             }
-            
+            else
+            {
+                distancebetween = lastx + rand.Next(200, 400);
+            }
 
             lastx = distancebetween;
-            obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
-
+            obj.GlobalPosition = new Vector2(
+                distancebetween,
+                -(distancebetween * ratio) + randomizedYdiff
+            );
         }
-    
     }
 
-    private Node2D spawnObject(string Name){
+    private Node2D spawnObject(string Name)
+    {
         Random rand = new Random();
-        switch (Name){
+        switch (Name)
+        {
             case "Ramp":
                 Node2D ramp = objectRamp.Instantiate<Node2D>();
                 return ramp;
@@ -74,10 +98,14 @@ public partial class worldcontroller : Node2D
             case "Spring":
                 Area2D spring = objectSpring.Instantiate<Area2D>();
                 return spring;
+            case "Snowflake":
+                Area2D snowflake = objectSnowflake.Instantiate<Area2D>();
+                return snowflake;
+            case "Fire":
+                Area2D fire = objectFire.Instantiate<Area2D>();
+                return fire;
         }
 
         return null;
     }
-
-
 }
