@@ -13,6 +13,9 @@ public partial class worldcontroller : Node2D
     [Export] PackedScene objectLagoon;
     [Export] PackedScene objectBird;
     [Export] PackedScene objectSnowflake;
+    [Export] Snowcannon snowcannon;
+    [Export] AnimationPlayer startanim;
+    [Export] bool skipintro = false;
 
     private enum groundObjects {Ramp, Wall, Spring, Lagoon}
 
@@ -21,10 +24,16 @@ public partial class worldcontroller : Node2D
         base._Ready();
         glob = GetNode<Globals>("/root/Globals");
 
-        glob.Connect("microsoft", new Callable(this, nameof(TestPrint)));
-        glob.EmitSignal("microsoft");
         spawnHillObjects();
         SpawnStuffInAir();
+
+        if (glob.firstboot && !skipintro){
+            startanim.Play("startanim");
+        }
+        if (skipintro){
+            glob.firstboot = false;
+        }
+
     }
 
     private void TestPrint()
@@ -176,5 +185,17 @@ public partial class worldcontroller : Node2D
         }
     }
 
+    private void _on_animation_player_animation_finished(string animname){
+        glob.firstboot = false;
+        snowcannon.currentCannonState = Snowcannon.cannonState.aiming;
+    }
+
+    private void _on_assetcleararea_body_entered(Node2D body){
+        if (body.IsInGroup("player")){
+            return;
+        }
+        body.CallDeferred("queue_free");
+    }
+    
 
 }

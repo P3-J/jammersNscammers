@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b17l832d781fs" path="res://assets/gottagofastskier.png" id="1_r4xse"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r4xse"]
-friction = 0.38
+friction = 0.16
 bounce = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xtyy"]

@@ -6,4 +6,6 @@ public partial class Globals : Node2D
 
     [Signal] public delegate void microsoftEventHandler();
 
+    public bool firstboot = true;
+
 }

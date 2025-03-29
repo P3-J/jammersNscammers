@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://box3yhf4s5jcb"]
+[gd_scene load_steps=17 format=3 uid="uid://box3yhf4s5jcb"]
 
 [ext_resource type="Script" uid="uid://b67xh3upyb8ys" path="res://scripts/worldcontroller.cs" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
@@ -11,8 +11,121 @@
 [ext_resource type="PackedScene" uid="uid://firr45ch28q6" path="res://scenes/objects/Bird.tscn" id="8_jhx03"]
 [ext_resource type="PackedScene" uid="uid://c3pqjb3dj260u" path="res://scenes/objects/snowflake.tscn" id="9_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="10_w7kh3"]
+[ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="11_q5onr"]
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision")]
+[sub_resource type="Animation" id="Animation_e3hyu"]
+resource_name = "startanim"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6744, -5920), Vector2(355, -150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_q5onr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(355, -168)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhx03"]
+_data = {
+&"RESET": SubResource("Animation_q5onr"),
+&"startanim": SubResource("Animation_e3hyu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5onr"]
+size = Vector2(1088, 688)
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("hillcollision", "snowcannon", "startanim")]
 process_mode = 1
 script = ExtResource("1_nnsk1")
 hillcollision = NodePath("hill/CollisionPolygon2D")
@@ -24,13 +137,48 @@ objectSkiMan = ExtResource("10_w7kh3")
 objectLagoon = ExtResource("7_e3hyu")
 objectBird = ExtResource("8_jhx03")
 objectSnowflake = ExtResource("9_o8fc1")
+snowcannon = NodePath("snowcannon")
+startanim = NodePath("snowcannon/startanimplayer")
+skipintro = true
 
-[node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer") instance=ExtResource("2_rwgxs")]
+[node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer", "camundercannon") instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -56)
 randomSkyItemSpawnTimer = NodePath("../worldstuff/worldItemSpawnTimer")
+camundercannon = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="snowcannon"]
 position = Vector2(355, -168)
+zoom = Vector2(2, 2)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="snowcannon/Camera2D"]
+position = Vector2(-304, -848)
+amount = 160
+lifetime = 3.0
+preprocess = 3.0
+speed_scale = 1.25
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 100)
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+
+[node name="Label" type="Label" parent="snowcannon/Camera2D"]
+offset_left = -507.0
+offset_top = -346.0
+offset_right = 588.0
+offset_bottom = -132.0
+theme_override_fonts/font = ExtResource("11_q5onr")
+theme_override_font_sizes/font_size = 35
+text = "Goal:
+Try to get the biggest snowball you can
+How:
+By staying on the snow as long as you can before you reach the bottom"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="startanimplayer" type="AnimationPlayer" parent="snowcannon"]
+libraries = {
+&"": SubResource("AnimationLibrary_jhx03")
+}
 
 [node name="hill" type="StaticBody2D" parent="." groups=["hill"]]
 position = Vector2(-3000, 0)
@@ -54,7 +202,7 @@ position = Vector2(-5696, 8136)
 polygon = PackedVector2Array(-10136, -8136, 8696, -8136, -616, 1720)
 
 [node name="Polygon2D" type="Polygon2D" parent="ground"]
-color = Color(0.215391, 0.67251, 0.34181, 1)
+color = Color(0.805371, 0.982194, 0.998931, 1)
 polygon = PackedVector2Array(-15833, 0, 3000, 0, 3064, 9344, -9992, 9784)
 
 [node name="worldstuff" type="Node2D" parent="."]
@@ -70,4 +218,12 @@ color = Color(0.49977, 0.572181, 0.793172, 1)
 [node name="worldItemSpawnTimer" type="Timer" parent="worldstuff"]
 wait_time = 2.0
 
+[node name="assetcleararea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="assetcleararea"]
+position = Vector2(-552, -384)
+shape = SubResource("RectangleShape2D_q5onr")
+
+[connection signal="animation_finished" from="snowcannon/startanimplayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="worldstuff/worldItemSpawnTimer" to="." method="_on_world_item_spawn_timer_timeout"]
+[connection signal="body_entered" from="assetcleararea" to="." method="_on_assetcleararea_body_entered"]

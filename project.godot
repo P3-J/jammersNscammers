@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="inshallahjam"
-run/main_scene="uid://box3yhf4s5jcb"
+run/main_scene="uid://dlcvh51f4xak1"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"

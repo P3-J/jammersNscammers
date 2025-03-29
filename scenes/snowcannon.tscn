@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mo182i8b3eb2"]
+[gd_scene load_steps=10 format=3 uid="uid://mo182i8b3eb2"]
 
 [ext_resource type="Script" uid="uid://bxjkfnrqpy8lt" path="res://scripts/Snowcannon.cs" id="1_p45f0"]
 [ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://byf46fl578l64" path="res://assets/cannonbarrel.png" id="3_ti4ob"]
 [ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_ag0j6"]
 [ext_resource type="Texture2D" uid="uid://fvnffnd63vhg" path="res://assets/fillbar.png" id="5_3vq1d"]
+[ext_resource type="Texture2D" uid="uid://db3q2m0swjn1t" path="res://assets/lmb.png" id="7_cjiui"]
+[ext_resource type="Texture2D" uid="uid://cfeore1f6dgjo" path="res://assets/spacebar.png" id="8_i03wu"]
+[ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="8_t5dvk"]
 
 [node name="snowcannon" type="Node2D" node_paths=PackedStringArray("target", "launchspot", "launcherparent", "launchbar", "slowmotimer")]
 script = ExtResource("1_p45f0")
@@ -51,5 +54,39 @@ texture = ExtResource("2_ahx1a")
 [node name="slowmotimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="space" type="Sprite2D" parent="."]
+position = Vector2(104, -176)
+texture = ExtResource("7_cjiui")
+
+[node name="Label" type="Label" parent="space"]
+texture_filter = 1
+offset_left = -72.0
+offset_top = -88.0
+offset_right = 81.0
+offset_bottom = -39.0
+theme_override_fonts/font = ExtResource("8_t5dvk")
+theme_override_font_sizes/font_size = 22
+text = "Move mouse to aim
+Hold LMB to charge
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mouse" type="Sprite2D" parent="."]
+position = Vector2(-104, -176)
+texture = ExtResource("8_i03wu")
+
+[node name="Label2" type="Label" parent="mouse"]
+texture_filter = 1
+offset_left = -72.0
+offset_top = -88.0
+offset_right = 81.0
+offset_bottom = -39.0
+theme_override_fonts/font = ExtResource("8_t5dvk")
+theme_override_font_sizes/font_size = 22
+text = "Use Space to slam
+towards the ground"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="slowmotimer" to="." method="_on_slowmotimer_timeout"]

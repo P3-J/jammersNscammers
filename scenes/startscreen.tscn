@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlcvh51f4xak1"]
+
+[ext_resource type="Script" uid="uid://d3u2mm7va30wy" path="res://scripts/Startscreen.cs" id="1_qx56x"]
+[ext_resource type="PackedScene" uid="uid://c8na4jm28fpye" path="res://scenes/skier.tscn" id="2_7nbyq"]
+[ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="2_m1yxm"]
+[ext_resource type="PackedScene" uid="uid://bd2mm42vtvk08" path="res://scenes/randomshit.tscn" id="3_4ge0g"]
+[ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="5_g1ylw"]
+[ext_resource type="Texture2D" uid="uid://bcbnhsu6webo1" path="res://assets/snowbg.png" id="6_4ge0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6o42"]
+bg_color = Color(0.423529, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q30ww"]
+bg_color = Color(0.423529, 0.6, 0.6, 1)
+
+[node name="startscreen" type="Node2D" node_paths=PackedStringArray("spawnpoint")]
+script = ExtResource("1_qx56x")
+spawnpoint = NodePath("spawnpoint")
+skier = ExtResource("2_7nbyq")
+ball = ExtResource("3_4ge0g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="startbutton" type="Button" parent="."]
+offset_left = -536.0
+offset_top = -232.0
+offset_right = -288.0
+offset_bottom = -184.0
+theme_override_fonts/font = ExtResource("2_m1yxm")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6o42")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q30ww")
+text = "START"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -544.0
+offset_top = -384.0
+offset_right = 32.0
+offset_bottom = -240.0
+theme_override_fonts/font = ExtResource("2_m1yxm")
+theme_override_font_sizes/font_size = 128
+text = "Glacier Rush"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(168, 48)
+polygon = PackedVector2Array(648, -464, -728, 488, 752, 488)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-304, -848)
+amount = 160
+lifetime = 3.0
+preprocess = 3.0
+speed_scale = 1.25
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 100)
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+
+[node name="spawnpoint" type="Marker2D" parent="."]
+position = Vector2(728, -648)
+
+[node name="spawntimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="object1ramp" parent="." instance=ExtResource("5_g1ylw")]
+z_index = -1
+position = Vector2(120, 168)
+rotation = 0.523599
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-560, 536, 808, -416, 920, 536)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("6_4ge0g")
+
+[connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="timeout" from="spawntimer" to="." method="_on_spawntimer_timeout"]
