@@ -13,7 +13,7 @@ public partial class Springtrap : Area2D
         {
             Snowball ball = (Snowball)body;
             boing.Play();
-            ball.LinearVelocity = new Vector2(500, rand.Next(-1600, -1000));
+            ball.LinearVelocity = new Vector2(500, -2500);
         }
     }
 
