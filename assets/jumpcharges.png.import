@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ik6ulqjkipa"
-path="res://.godot/imported/progressbar.png-58f59ff6a38af6eb70e72568be2faca8.ctex"
+uid="uid://b6doggxsxt4kp"
+path="res://.godot/imported/jumpcharges.png-1469620b6e329786e9a883f4df2ecd7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/progressbar.png"
-dest_files=["res://.godot/imported/progressbar.png-58f59ff6a38af6eb70e72568be2faca8.ctex"]
+source_file="res://assets/jumpcharges.png"
+dest_files=["res://.godot/imported/jumpcharges.png-1469620b6e329786e9a883f4df2ecd7c.ctex"]
 
 [params]
 
