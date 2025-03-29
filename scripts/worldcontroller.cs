@@ -8,8 +8,11 @@ public partial class worldcontroller : Node2D
     [Export] PackedScene objectRamp;
     [Export] PackedScene objectWall;
     [Export] PackedScene objectSpring;
+    [Export] PackedScene objectIceBall;
+    [Export] PackedScene objectSkiMan;
+    [Export] PackedScene objectLagoon;
 
-    private enum groundObjects {Ramp, Wall, Spring}
+    private enum groundObjects {Ramp, Wall, Spring, Lagoon}
 
     public override void _Ready()
     {
@@ -33,28 +36,46 @@ public partial class worldcontroller : Node2D
         // ratio = 0.8889   x * 0.8889
 
         Random rand = new Random();
-        int lastx = 0;
-        for (int i = 1; i <  40; i++)
+        int lastx = 500;
+        string lastobjName = "";
+        int objCount = 50;
+        for (int i = 1; i <  objCount; i++)
         {
 
             int selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
             string[] names = Enum.GetNames(typeof(groundObjects));
-
             string nameofobj = names[selection];
 
+            if (nameofobj == "Lagoon"){
+
+                // reroll
+                selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
+                nameofobj = names[selection];
+
+                if (lastobjName == "Lagoon"){
+                    // if 2 in a row skip
+                    objCount++;
+                    continue;
+                }                
+            }
             Node2D obj = spawnObject(nameofobj);
             GetTree().CurrentScene.AddChild(obj);
-            
+             
             int distancebetween = lastx + rand.Next(200,1000);
             int randomizedYdiff = 0;
 
-            if (nameofobj != "Spring"){
+            if (nameofobj != "Spring" && nameofobj != "Lagoon"){
                 randomizedYdiff  = rand.Next(-90, 100);
             } else {
-               distancebetween = lastx + rand.Next(200,400); 
+                randomizedYdiff = 0;
+                distancebetween = lastx + rand.Next(200,400);  
+            }
+
+            if (lastobjName == "Lagoon"){
+                distancebetween = lastx + rand.Next(1200,1500); 
             }
             
-
+            lastobjName = nameofobj;
             lastx = distancebetween;
             obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
 
@@ -74,9 +95,45 @@ public partial class worldcontroller : Node2D
             case "Spring":
                 Area2D spring = objectSpring.Instantiate<Area2D>();
                 return spring;
+            case "IceBall":
+                RigidBody2D ball = objectIceBall.Instantiate<RigidBody2D>();
+                return ball;
+            case "SkatMan":
+                RigidBody2D skiman = objectSkiMan.Instantiate<RigidBody2D>();
+                return skiman;
+            case "Lagoon":
+                Node2D lagoon = objectLagoon.Instantiate<Node2D>();
+                return lagoon;
         }
 
         return null;
+    }
+
+    private void SpawnStuffThatFallsDown(){
+        Random rand = new Random();
+
+        int Selection = rand.Next(0,3);
+        string objName = "";
+
+        switch (Selection){
+            case 0:
+                objName = "SkatMan";
+                break;
+            case 1:
+            case 2:
+                objName = "IceBall";
+                break;
+        }
+
+        
+        Node2D obj = spawnObject(objName);
+        int randomx = rand.Next(1000, 25000);
+        AddChild(obj);
+        obj.GlobalPosition = new Vector2(randomx, -(randomx * 0.9f) - 500);
+    }
+
+    private void _on_world_item_spawn_timer_timeout(){
+        SpawnStuffThatFallsDown();
     }
 
 

@@ -76,7 +76,6 @@ public partial class Snowball : RigidBody2D
     }
 
     private void _on_stucktimer_timeout(){
-        GD.Print(lastpos, GlobalPosition);
         if (lastpos == GlobalPosition){
             ResetSceneStuff();
             GetTree().ChangeSceneToFile("res://scenes/world.tscn");
@@ -116,7 +115,7 @@ public partial class Snowball : RigidBody2D
 			.SetTrans(Tween.TransitionType.Linear);
         
         float radiusChange = (colradiuss * growthFactor) - colradiuss;
-        GlobalPosition += new Vector2(0, -radiusChange); 
+        GlobalPosition += new Vector2(0, -radiusChange);
 
         Tween tween2 = GetTree().CreateTween();
 		tween2.TweenProperty(sballCamera, "zoom", sballCamera.Zoom *= 0.98f, 1)
