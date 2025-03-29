@@ -26,8 +26,12 @@ public partial class Snowball : RigidBody2D
 
     [Export]
     TextureProgressBar jumpChargeBar;
-    [Export] CpuParticles2D slamdownparticle;
-    [Export] CpuParticles2D upparticle;
+
+    [Export]
+    CpuParticles2D slamdownparticle;
+
+    [Export]
+    CpuParticles2D upparticle;
 
     public float colradiuss;
     bool boostedDown = false;
@@ -43,7 +47,7 @@ public partial class Snowball : RigidBody2D
     float ogMass;
     Vector2 ogGroundCheck;
     Globals globals;
-    public int jumpCharges = 2;
+    public int jumpCharges = 4;
 
     public void SetSnowballCameraAsCurrent()
     {
@@ -130,7 +134,7 @@ public partial class Snowball : RigidBody2D
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("jump"))
+        if (Input.IsActionJustPressed("jump") && jumpCharges > 0)
         {
             // handle charge to ground
             if (colbodies.Count == 0 && !boostedDown)
@@ -138,15 +142,16 @@ public partial class Snowball : RigidBody2D
                 LinearVelocity = new Vector2(LinearVelocity.X + 400, LinearVelocity.Y + 700);
                 boostedDown = true;
                 slamdownparticle.Emitting = true;
+                jumpCharges--;
             }
             // handle jump up
-            else if (jumpCharges > 0)
+            else
             {
                 jumpCharges--;
                 LinearVelocity = new Vector2(LinearVelocity.X + -200f, -700f);
-                setJumpChargeBar();
                 upparticle.Emitting = true;
             }
+            setJumpChargeBar();
         }
     }
 

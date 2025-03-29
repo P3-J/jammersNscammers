@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c1s2a1vsbsr86" path="res://scenes/snowballmanager.cs" id="1_dnn3y"]
 [ext_resource type="Script" uid="uid://1lei5xfmxfmk" path="res://scripts/Snowball.cs" id="1_xsgkx"]
 [ext_resource type="FontFile" uid="uid://48ln0hylhuh5" path="res://assets/fonts/Born2bSportyFS.otf" id="4_8kbcc"]
-[ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_i4rw7"]
 [ext_resource type="PackedScene" uid="uid://cus66e8xsu150" path="res://scenes/game_over.tscn" id="4_svv1h"]
+[ext_resource type="Texture2D" uid="uid://b6doggxsxt4kp" path="res://assets/jumpcharges.png" id="5_8kbcc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dnn3y"]
 friction = 0.7
@@ -127,10 +127,10 @@ offset_top = -24.0
 offset_right = 96.0
 offset_bottom = 56.0
 scale = Vector2(0.5, 0.5)
-max_value = 2.0
-value = 2.0
+max_value = 4.0
+value = 4.0
 fill_mode = 2
-texture_progress = ExtResource("4_i4rw7")
+texture_progress = ExtResource("5_8kbcc")
 metadata/_edit_use_anchors_ = true
 
 [node name="stucktimer" type="Timer" parent="."]
