@@ -4,11 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://oiiwomrfi1jv" path="res://scenes/object_1_ramp.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://mo182i8b3eb2" path="res://scenes/snowcannon.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://deejfi5nec2mw" path="res://scenes/object_2_stick.tscn" id="3_k0juu"]
-
-
-[ext_resource type="PackedScene" uid="uid://tixorf3bo8gi" path="res://scenes/springtrap.tscn" id="4_qfnet"]
-[ext_resource type="PackedScene" uid="uid://bd2mm42vtvk08" path="res://scenes/randomshit.tscn" id="5_7r4gi"]
-
+[ext_resource type="PackedScene" path="res://scenes/springtrap.tscn" id="4_qfnet"]
+[ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="5_e3hyu"]
 [ext_resource type="Script" uid="uid://c6s0rp4uovkfl" path="res://scripts/polyfill.cs" id="6_i7141"]
 [ext_resource type="Texture2D" uid="uid://rxcupwjur36t" path="res://assets/person.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://6okwb2dbbe2y" path="res://scenes/object_lagoon.tscn" id="7_e3hyu"]
@@ -31,13 +28,12 @@ hillcollision = NodePath("hill/CollisionPolygon2D")
 objectRamp = ExtResource("2_4wyf3")
 objectWall = ExtResource("3_k0juu")
 objectSpring = ExtResource("4_qfnet")
-objectIceBall = ExtResource("5_7r4gi")
+objectIceBall = ExtResource("5_e3hyu")
 objectSkiMan = ExtResource("10_w7kh3")
 objectLagoon = ExtResource("7_e3hyu")
 
-[node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer") instance=ExtResource("2_rwgxs")]
+[node name="snowcannon" parent="." instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -16)
-randomSkyItemSpawnTimer = NodePath("../worldstuff/worldItemSpawnTimer")
 
 [node name="Camera2D" type="Camera2D" parent="snowcannon"]
 position = Vector2(355, -168)
