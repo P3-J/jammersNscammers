@@ -19,10 +19,10 @@ polygon = PackedVector2Array(124.412, 225.383, 28.4683, 426.845, 422.729, 454.81
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 texture_filter = 1
-position = Vector2(-308.74, -478.372)
+position = Vector2(-313.458, -597.207)
 texture = ExtResource("1_85lx0")
 texture_scale = Vector2(0.05, 0.2)
-polygon = PackedVector2Array(118.973, 256.479, 103.334, 337.346, 383.902, 363.905, 487.31, 377.572, 445.61, 290.365, 352.486, 264.442, 246.12, 216.963)
+polygon = PackedVector2Array(118.973, 256.479, 103.334, 337.346, 383.902, 363.905, 487.31, 377.572, 395.385, 300.438, 352.486, 264.442, 246.12, 216.963)
 
 [node name="Polygon2D3" type="Polygon2D" parent="StaticBody2D"]
 modulate = Color(1, 1, 1, 0.47451)
@@ -30,11 +30,11 @@ texture_filter = 1
 position = Vector2(-357.417, -320.795)
 texture = ExtResource("1_85lx0")
 texture_scale = Vector2(0.05, 0.2)
-polygon = PackedVector2Array(152.011, 179.769, 103.334, 337.346, 383.902, 363.905, 572.333, 375.812, 529.859, 214.853, 419.336, 184.773, 315.928, 171.106)
+polygon = PackedVector2Array(152.435, 54.8056, 103.334, 337.346, 383.902, 363.905, 572.333, 375.812, 519.012, 90.8757, 420.747, 71.0805, 329.595, 67.6983)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(70.0943, -432.017)
-polygon = PackedVector2Array(-132.714, 170.608, -21.0837, 216.375, 66.7757, 244.01, 114.605, 336.36, -275.5, 290.991, -254.597, 208.412)
+position = Vector2(59.2474, -555.994)
+polygon = PackedVector2Array(-132.714, 170.608, -21.0837, 216.375, 41.0644, 274.652, 114.605, 336.36, -275.5, 290.991, -254.597, 208.412)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-248.94, 10.4225, -344.884, 211.884, 518.376, 278.32, 729.984, 100.81, 437.583, -60.9974, 404.546, 15.713)

@@ -10,6 +10,7 @@ public partial class Snowcannon : Node2D
     [Export] PackedScene snowball;
     [Export] TextureProgressBar launchbar;
     [Export] Timer randomSkyItemSpawnTimer;
+    [Export] Timer slowmotimer;
 
     private enum cannonState {aiming, shooting, locked}
     private cannonState currentCannonState;
@@ -52,10 +53,14 @@ public partial class Snowcannon : Node2D
         }
 
         if (Input.IsActionJustReleased("lmb")){
+            currentCannonState = cannonState.locked;
             if (!launchedBall){
+                Engine.TimeScale = 0.1f;
                 launchSnowBall();
                 launchedBall = true;
-                randomSkyItemSpawnTimer.Start();
+                randomSkyItemSpawnTimer.Start(); 
+                slowmotimer.Start();
+                
             }
         }
     }
@@ -103,6 +108,12 @@ public partial class Snowcannon : Node2D
             return 2000;
         }
         return 6000;
+    }
+
+    private void _on_slowmotimer_timeout(){
+        GD.Print("time back");
+        Engine.TimeScale = 1f;
+        this.Visible = false;
     }
 
 }
