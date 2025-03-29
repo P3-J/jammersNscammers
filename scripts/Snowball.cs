@@ -26,6 +26,8 @@ public partial class Snowball : RigidBody2D
 
     [Export]
     TextureProgressBar jumpChargeBar;
+    [Export] CpuParticles2D slamdownparticle;
+    [Export] CpuParticles2D upparticle;
 
     public float colradiuss;
     bool boostedDown = false;
@@ -135,6 +137,7 @@ public partial class Snowball : RigidBody2D
             {
                 LinearVelocity = new Vector2(LinearVelocity.X + 400, LinearVelocity.Y + 700);
                 boostedDown = true;
+                slamdownparticle.Emitting = true;
             }
             // handle jump up
             else if (jumpCharges > 0)
@@ -142,6 +145,7 @@ public partial class Snowball : RigidBody2D
                 jumpCharges--;
                 LinearVelocity = new Vector2(LinearVelocity.X + -200f, -700f);
                 setJumpChargeBar();
+                upparticle.Emitting = true;
             }
         }
     }

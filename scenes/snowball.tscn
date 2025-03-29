@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyh0qb6omf2gv"]
+[gd_scene load_steps=10 format=3 uid="uid://cyh0qb6omf2gv"]
 
 [ext_resource type="Texture2D" uid="uid://c6ru525yy27po" path="res://assets/snowball.png" id="1_6tw0o"]
 [ext_resource type="Script" uid="uid://c1s2a1vsbsr86" path="res://scenes/snowballmanager.cs" id="1_dnn3y"]
@@ -13,13 +13,18 @@ friction = 0.7
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsgkx"]
 radius = 38.0
 
+[sub_resource type="Curve" id="Curve_8kbcc"]
+_limits = [0.0, 6.0, 0.0, 1.0]
+_data = [Vector2(0, 6), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="snowballmanager" type="Node2D" node_paths=PackedStringArray("sball", "ballui", "radiuslabel")]
 script = ExtResource("1_dnn3y")
 sball = NodePath("snowball")
 ballui = NodePath("ui")
 radiuslabel = NodePath("ui/radiuslabel")
 
-[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer", "gameOver", "jumpChargeBar") groups=["player"]]
+[node name="snowball" type="RigidBody2D" parent="." node_paths=PackedStringArray("sballCamera", "groundcheck", "growtimer", "snowballcol", "snowballsprite", "stucktimer", "gameOver", "jumpChargeBar", "slamdownparticle", "upparticle") groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_dnn3y")
 contact_monitor = true
 max_contacts_reported = 3
@@ -32,6 +37,8 @@ snowballsprite = NodePath("snowballsprite")
 stucktimer = NodePath("../stucktimer")
 gameOver = NodePath("../GameOver")
 jumpChargeBar = NodePath("../ui/TextureProgressBar")
+slamdownparticle = NodePath("slamdown")
+upparticle = NodePath("up")
 
 [node name="snowballcol" type="CollisionShape2D" parent="snowball"]
 shape = SubResource("CircleShape2D_xsgkx")
@@ -61,6 +68,33 @@ emission_shape = 1
 emission_sphere_radius = 42.35
 scale_amount_min = 2.0
 scale_amount_max = 5.0
+
+[node name="slamdown" type="CPUParticles2D" parent="snowball"]
+z_index = -1
+position = Vector2(-8, -8)
+emitting = false
+amount = 64
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector2(0, -980)
+scale_amount_curve = SubResource("Curve_8kbcc")
+color = Color(1, 0.345098, 0.188235, 1)
+
+[node name="up" type="CPUParticles2D" parent="snowball"]
+z_index = -1
+position = Vector2(-8, -8)
+emitting = false
+amount = 64
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 30.0
+scale_amount_curve = SubResource("Curve_8kbcc")
+color = Color(1, 0.345098, 0.188235, 1)
 
 [node name="ui" type="Node2D" parent="."]
 

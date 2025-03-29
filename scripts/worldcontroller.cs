@@ -62,12 +62,12 @@ public partial class worldcontroller : Node2D
             if (nameofobj == "Lagoon" || nameofobj == "Spring"){
 
                 // reroll
-                if (lastobjName == "Lagoon"){
+                if (lastobjName == "Lagoon" && nameofobj != "Spring"){
                     selection = rand.Next(0, Enum.GetNames(typeof(groundObjects)).Length);
                     nameofobj = names[selection];
                 }
 
-                if (lastobjName == "Lagoon" && lastobjName == "Spring"){
+                if (lastobjName == "Lagoon" || lastobjName == "Spring"){
                     // if 2 in a row skip
                     objCount++;
                     continue;
@@ -94,7 +94,7 @@ public partial class worldcontroller : Node2D
             lastx = distancebetween;
             obj.GlobalPosition = new Vector2(distancebetween, -(distancebetween * ratio) + randomizedYdiff);
             
-            if (rand.Next(1, 10) == 1)
+            if (rand.Next(1, 5) == 1)
             {
                 Area2D rocket = objectRocket.Instantiate<Area2D>();
                 GetTree().CurrentScene.AddChild(rocket);
@@ -172,7 +172,7 @@ public partial class worldcontroller : Node2D
         Random rand = new Random();
         for (int i = 1; i <  40; i++)
         {
-            float x = rand.Next(400, 25000);
+            float x = rand.Next(3000, 25000);
             float y = -(x * 0.9f) - (rand.Next(900,5000));
 
             string objName = "";
