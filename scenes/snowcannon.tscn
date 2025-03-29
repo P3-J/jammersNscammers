@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://mo182i8b3eb2"]
+[gd_scene load_steps=15 format=4 uid="uid://mo182i8b3eb2"]
 
 [ext_resource type="Script" uid="uid://bxjkfnrqpy8lt" path="res://scripts/Snowcannon.cs" id="1_p45f0"]
-[ext_resource type="PackedScene" uid="uid://cyh0qb6omf2gv" path="res://scenes/snowball.tscn" id="2_ag0j6"]
 [ext_resource type="Texture2D" uid="uid://bcba1ru3daem" path="res://icon.svg" id="2_ahx1a"]
 [ext_resource type="Texture2D" uid="uid://c2ik6ulqjkipa" path="res://assets/progressbar.png" id="4_ag0j6"]
 [ext_resource type="Texture2D" uid="uid://dugy0mx2vfaqo" path="res://assets/obj/kahur_alus_tex.png" id="6_3vq1d"]
@@ -68,7 +67,6 @@ script = ExtResource("1_p45f0")
 target = NodePath("launcherparent/target")
 launchspot = NodePath("launcherparent/launchspot")
 launcherparent = NodePath("launcherparent")
-snowball = ExtResource("2_ag0j6")
 launchbar = NodePath("launchbar")
 
 [node name="launcherparent" type="Node2D" parent="."]
