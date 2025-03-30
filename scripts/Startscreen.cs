@@ -7,6 +7,15 @@ public partial class Startscreen : Node2D
     [Export] Marker2D spawnpoint;
     [Export] PackedScene skier;
     [Export] PackedScene ball;
+    Globals glob;
+
+    public override void _Ready()
+    {
+        base._Ready();
+        glob = GetNode<Globals>("/root/Globals");
+        glob.playsound("globalmusic");
+    }
+
     private void _on_startbutton_pressed(){
         GetTree().ChangeSceneToFile("res://scenes/world.tscn");
     }

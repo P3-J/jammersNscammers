@@ -25,6 +25,8 @@ public partial class worldcontroller : Node2D
         base._Ready();
         glob = GetNode<Globals>("/root/Globals");
 
+        glob.playsound("globalmusic");
+
         spawnHillObjects();
         SpawnStuffInAir();
 

@@ -48,6 +48,7 @@ public partial class Snowball : RigidBody2D
     Vector2 ogGroundCheck;
     Globals globals;
     public int jumpCharges = 4;
+    Globals glob;
 
     public void SetSnowballCameraAsCurrent()
     {
@@ -58,6 +59,7 @@ public partial class Snowball : RigidBody2D
     {
         base._Ready();
         colradiuss = (float)snowballcol.Shape.Get("radius");
+        glob = GetNode<Globals>("/root/Globals");
 
         ogSpriteScale = snowballsprite.Scale;
         ogRadius = colradiuss;
@@ -130,12 +132,14 @@ public partial class Snowball : RigidBody2D
         sballCamera.Zoom = ogZoom;
         Mass = ogMass;
         groundcheck.Scale = ogGroundCheck;
+        glob.ResetPitch();
     }
 
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed("jump") && jumpCharges > 0)
         {
+            glob.playsound("boost");
             // handle charge to ground
             if (colbodies.Count == 0 && !boostedDown)
             {
@@ -185,5 +189,6 @@ public partial class Snowball : RigidBody2D
 
         groundcheck.Scale *= growthFactor;
         LinearVelocity = new Vector2(LinearVelocity.X - 100f, LinearVelocity.Y + 100);
+        glob.DropPitch();
     }
 }

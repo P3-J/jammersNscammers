@@ -70,6 +70,7 @@ public partial class Snowcannon : Node2D
         if (Input.IsActionJustReleased("lmb")){
             currentCannonState = cannonState.locked;
             if (!launchedBall){
+                glob.playsound("boom");
                 Engine.TimeScale = 0.1f;
                 launchSnowBall();
                 launchedBall = true;
@@ -122,7 +123,7 @@ public partial class Snowcannon : Node2D
         if (launchbar.Value > 64){
             return 4500;
         }
-        return 7500;
+        return 7500 ;
     }
 
     private void _on_slowmotimer_timeout(){
