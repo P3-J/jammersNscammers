@@ -8,20 +8,9 @@ public partial class GlobalMusic : Node
 
     public override void _Ready()
     {
-        if (musicPlayer != null)
-        {
-            musicPlayer.Play();
-        }
+     
     }
 
     // Function to lower the pitch
-    public void DropPitch()
-    {
-        if (musicPlayer != null)
-        {
-            basePitch -= 0.10f;
-            basePitch = Mathf.Max(0.5f, basePitch);  // Prevent pitch from going too low
-            musicPlayer.PitchScale = basePitch;
-        }
-    }
+    
 }
