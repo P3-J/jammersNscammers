@@ -142,7 +142,6 @@ objectSnowflake = ExtResource("9_o8fc1")
 snowcannon = NodePath("snowcannon")
 startanim = NodePath("snowcannon/startanimplayer")
 objectRocket = ExtResource("10_jhx03")
-skipintro = true
 
 [node name="snowcannon" parent="." node_paths=PackedStringArray("randomSkyItemSpawnTimer", "camundercannon") instance=ExtResource("2_rwgxs")]
 position = Vector2(-672, -56)
